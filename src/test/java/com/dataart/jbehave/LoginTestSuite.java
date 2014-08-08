@@ -1,19 +1,19 @@
 package com.dataart.jbehave;
 
+import net.thucydides.core.annotations.Steps;
+import net.thucydides.jbehave.ThucydidesJUnitStories;
+
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
 import com.dataart.steps.UserLoginSteps;
 
-import net.thucydides.core.annotations.Steps;
-import net.thucydides.jbehave.ThucydidesJUnitStories;
-
 public class LoginTestSuite extends ThucydidesJUnitStories {
 
 	@Steps
 	UserLoginSteps user;
-
+	
 	@Given("the user is on the Login page")
 	public void givenTheUserIsOnTheLoginPage() {
 		user.is_on_the_login_page();
@@ -53,4 +53,12 @@ public class LoginTestSuite extends ThucydidesJUnitStories {
 		
 		user.click_logout_link();
 	}
+	
+	@When("the user click on the Register now link")
+	public void the_user_click_on_the_Register_now_link(){
+		user.click_on_the_Register_now_link();
+	}
+	
+	
+	
 }
