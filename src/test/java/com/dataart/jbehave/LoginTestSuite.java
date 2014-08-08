@@ -53,4 +53,16 @@ public class LoginTestSuite extends ThucydidesJUnitStories {
 		
 		user.click_logout_link();
 	}
+	
+	@When("the user enters name: $username and click the 'login' button")
+	public void userEntersLoginAndClicksButton(String userName){
+		user.enter(userName, "");
+		user.click_login_button();
+	}
+	
+	@When("the user enters password: $password and click the 'login' button")
+	public void userEntersPasswordAndClicksButton(String password){
+		user.enter("", password);
+		user.click_login_button();
+	}
 }
