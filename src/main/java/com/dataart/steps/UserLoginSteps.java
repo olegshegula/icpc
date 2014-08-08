@@ -10,48 +10,52 @@ import net.thucydides.core.steps.ScenarioSteps;
 public class UserLoginSteps extends ScenarioSteps {
 
 	LoginPage loginPage;
-	
+
 	@Step
-	public void is_on_the_login_page(){
-		
+	public void is_on_the_login_page() {
+
 		loginPage.open();
 	}
-	
-	@Step 
-	public void enter(String userName, String password){
-		
+
+	@Step
+	public void enter(String userName, String password) {
+
 		loginPage.enterLoginAndPassword(userName, password);
 	}
-	
-	
-	
+
 	@Step
-	public void click_login_button(){
-		
+	public void click_login_button() {
+
 		loginPage.clickLogin();
-		
+
 	}
-	
+
 	@Step
-	public void click_logout_link(){
-		
+	public void click_logout_link() {
+
 		loginPage.clickLogOut();
 	}
-	
-	@Step 
-	public void should_see_a_page_title(String message){
-		
-		Assert.assertEquals(loginPage.getPageTitle(),message);
-		
+
+	@Step
+	public void should_see_a_page_title(String message) {
+
+		Assert.assertEquals(loginPage.getPageTitle(), message);
+
 	}
-	
-	@Step 
-	public void should_see_invalid_flash_message(String message){
-		
-		Assert.assertEquals(loginPage.getInvalidFlashMessage(),message);
-		
+
+	@Step
+	public void should_see_invalid_flash_message(String message) {
+
+		Assert.assertEquals(loginPage.getInvalidFlashMessage(), message);
+
 	}
+
+	@Step
+	public void click_on_the_Register_now_link() {
+
+		loginPage.clickOnRegisterLink();
+	}
+
 	
-	
-	
+
 }

@@ -25,7 +25,10 @@ public class LoginPage extends PageObject {
 	WebElementFacade welcomeMsg;
 
 	@FindBy(css = ".alert.alert-danger")
-	WebElementFacade flashMsg;	
+	WebElementFacade flashMsg;
+	
+	@FindBy(css = ".form-group>b>a")
+	WebElementFacade registerLink;
 	
 	@FindBy(xpath ="//*[@id='main']//a[text()='Logout']")
 	WebElementFacade logOut;
@@ -42,6 +45,10 @@ public class LoginPage extends PageObject {
 	public void clickLogin() {
 		loginButton.click();
 
+	}
+	
+	public void clickOnRegisterLink(){
+		registerLink.click();
 	}
 	
 	public void clickLogOut(){

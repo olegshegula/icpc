@@ -73,6 +73,5 @@ public class LoginTestSuite extends ThucydidesJUnitStories {
 	}
 	
 	
-	
 
 }
