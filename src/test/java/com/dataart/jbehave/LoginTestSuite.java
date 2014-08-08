@@ -28,10 +28,10 @@ public class LoginTestSuite extends ThucydidesJUnitStories {
 
 	}
 
-	@Then("user should see a welcome message $message")
-	public void userShouldSeeAWelcomeMessage(String message) {
+	@Then("user should see a page title $message")
+	public void userShouldSeeAPageTitleMessage(String message) {
 
-		user.should_see_a_welcome_message(message);
+		user.should_see_a_page_title(message);
 
 	}
 	

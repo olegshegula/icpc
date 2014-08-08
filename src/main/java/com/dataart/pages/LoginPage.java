@@ -6,17 +6,17 @@ import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
 
-@DefaultUrl("http://localhost:8080/auth/login")
-@At("http://localhost:8080/auth/login")
+@DefaultUrl("http://acc.icpc.org.ua/auth/login")
+@At("http://acc.icpc.org.ua/auth/login")
 public class LoginPage extends PageObject {
 
-	@FindBy(id = "j_username")
+	@FindBy(xpath = "//input[@type='email']")
 	private WebElementFacade userNameTextField;
 
-	@FindBy(id = "j_password")
+	@FindBy(xpath = "//input[@type='password']")
 	private WebElementFacade passwordTextField;
 
-	@FindBy(xpath = "//div[@class='form']/form/input")
+	@FindBy(xpath = "//button[@type='submit']")
 	WebElementFacade loginButton;
 
 	@FindBy(css = ".welcome")
@@ -50,6 +50,12 @@ public class LoginPage extends PageObject {
 		System.out.println(flashMsg.getText());
 		return flashMsg.getText();
 
+	}
+	
+	public String getPageTitle() {
+		
+		System.out.println(this.getTitle());
+		return this.getTitle();
 	}
 
 }

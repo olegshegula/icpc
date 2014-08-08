@@ -17,7 +17,7 @@ public class UserLoginSteps extends ScenarioSteps {
 		loginPage.open();
 	}
 	
-	@Step
+	@Step 
 	public void enter(String userName, String password){
 		
 		loginPage.enterLoginAndPassword(userName, password);
@@ -31,9 +31,9 @@ public class UserLoginSteps extends ScenarioSteps {
 	}
 	
 	@Step 
-	public void should_see_a_welcome_message(String message){
+	public void should_see_a_page_title(String message){
 		
-		Assert.assertEquals(loginPage.getWelcomeMessage(),message);
+		Assert.assertEquals(loginPage.getPageTitle(),message);
 		
 	}
 	
