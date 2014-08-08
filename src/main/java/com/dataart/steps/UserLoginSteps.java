@@ -30,6 +30,12 @@ public class UserLoginSteps extends ScenarioSteps {
 		
 	}
 	
+	@Step
+	public void click_logout_link(){
+		
+		loginPage.clickLogOut();
+	}
+	
 	@Step 
 	public void should_see_a_page_title(String message){
 		
@@ -38,10 +44,12 @@ public class UserLoginSteps extends ScenarioSteps {
 	}
 	
 	@Step 
-	public void should_see_a_flash_message(String message){
+	public void should_see_invalid_flash_message(String message){
 		
-		Assert.assertEquals(loginPage.getFlashMessage(),message);
+		Assert.assertEquals(loginPage.getInvalidFlashMessage(),message);
 		
 	}
+	
+	
 	
 }

@@ -1,5 +1,7 @@
 package com.dataart.pages;
 
+import org.openqa.selenium.By;
+
 import net.thucydides.core.annotations.At;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.findby.FindBy;
@@ -22,8 +24,12 @@ public class LoginPage extends PageObject {
 	@FindBy(css = ".welcome")
 	WebElementFacade welcomeMsg;
 
-	@FindBy(css = ".flash")
-	WebElementFacade flashMsg;
+	@FindBy(css = ".alert.alert-danger")
+	WebElementFacade flashMsg;	
+	
+	@FindBy(xpath ="//*[@id='main']//a[text()='Logout']")
+	WebElementFacade logOut;
+	
 
 	public void enterLoginAndPassword(String userName, String password) {
 		userNameTextField.clear();
@@ -37,6 +43,10 @@ public class LoginPage extends PageObject {
 		loginButton.click();
 
 	}
+	
+	public void clickLogOut(){
+		logOut.click();
+	}
 
 	public String getWelcomeMessage() {
 
@@ -45,7 +55,7 @@ public class LoginPage extends PageObject {
 
 	}
 
-	public String getFlashMessage() {
+	public String getInvalidFlashMessage() {
 
 		System.out.println(flashMsg.getText());
 		return flashMsg.getText();
@@ -57,5 +67,7 @@ public class LoginPage extends PageObject {
 		System.out.println(this.getTitle());
 		return this.getTitle();
 	}
+	
+	
 
 }

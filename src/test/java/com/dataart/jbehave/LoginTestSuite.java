@@ -35,12 +35,22 @@ public class LoginTestSuite extends ThucydidesJUnitStories {
 
 	}
 	
-	@Then("user should see a flash message $message")
+	@Then("user should see invalid flash message $message")
 	public void userShouldSeeAFlashMessage(String message) {
 
-		user.should_see_a_flash_message(message);
+		user.should_see_invalid_flash_message(message);
 
 	}
 	
-
+	@When("the user click the login button")
+	public void clickLoginButton(){
+		
+		user.click_login_button();
+	}
+	
+	@Then("user loged out")
+	public void clickLogoutLink(){
+		
+		user.click_logout_link();
+	}
 }
