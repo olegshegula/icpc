@@ -35,8 +35,8 @@ public class LoginPage extends PageObject {
 	public void enterLoginAndPassword(String userName, String password) {
 		$(userNameTextField).clear();
 		$(passwordTextField).clear();
-		$(userNameTextField).sendKeys(userName);
-		$(passwordTextField).sendKeys(password);
+		$(userNameTextField).type(userName);
+		$(passwordTextField).type(password);
 
 	}
 
