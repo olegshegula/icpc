@@ -1,7 +1,5 @@
 package com.dataart.pages;
 
-import org.openqa.selenium.By;
-
 import net.thucydides.core.annotations.At;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.findby.FindBy;
@@ -35,10 +33,10 @@ public class LoginPage extends PageObject {
 	
 
 	public void enterLoginAndPassword(String userName, String password) {
-		userNameTextField.clear();
-		passwordTextField.clear();
-		userNameTextField.sendKeys(userName);
-		passwordTextField.sendKeys(password);
+		$(userNameTextField).clear();
+		$(passwordTextField).clear();
+		$(userNameTextField).sendKeys(userName);
+		$(passwordTextField).sendKeys(password);
 
 	}
 
