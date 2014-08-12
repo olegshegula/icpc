@@ -1,5 +1,15 @@
 package com.dataart.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
 import net.thucydides.core.annotations.At;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.findby.FindBy;
@@ -24,17 +34,25 @@ public class LoginPage extends PageObject {
 
 	@FindBy(css = ".alert.alert-danger")
 	WebElementFacade flashMsg;
-	
+
 	@FindBy(css = ".form-group>b>a")
 	WebElementFacade registerLink;
+
+	@FindBy(xpath = "html/body/nav/div/div/ul[2]/li/a")
+	WebElementFacade chooseLang;
+
+	@FindBy(xpath = "//*[@id='main']//td[2]")
+	WebElementFacade pageHeader;
 	
-	@FindBy(xpath ="//*[@id='main']//a[text()='Logout']")
+	
+	@FindBy(xpath = "//*[@id='main']//a[text()='Logout']")
 	WebElementFacade logOut;
-	
+
+	protected WebDriver driver;
 
 	public void enterLoginAndPassword(String userName, String password) {
-		$(userNameTextField).clear();
-		$(passwordTextField).clear();
+		//$(userNameTextField).clear();
+		//$(passwordTextField).clear();
 		$(userNameTextField).type(userName);
 		$(passwordTextField).type(password);
 
@@ -44,20 +62,24 @@ public class LoginPage extends PageObject {
 		loginButton.click();
 
 	}
-	
-	public void clickOnRegisterLink(){
+
+	public void clickOnRegisterLink() {
 		registerLink.click();
 	}
-	
-	public void clickLogOut(){
+
+	public void clickLogOut() {
 		logOut.click();
 	}
 
 	public String getWelcomeMessage() {
 
-		
 		return welcomeMsg.getText();
 
+	}
+
+	public String getHearer() {
+
+		return $(pageHeader).getText();
 	}
 
 	public String getInvalidFlashMessage() {
@@ -66,13 +88,24 @@ public class LoginPage extends PageObject {
 		return flashMsg.getText();
 
 	}
-	
+
 	public String getPageTitle() {
-		
+
 		System.out.println(this.getTitle());
 		return this.getTitle();
 	}
-	
-	
 
-}
+	public void chooseLanguage(String language)  {
+		
+		Actions builder = new Actions(getDriver());
+		getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		builder.moveToElement(chooseLang).build().perform();;
+		builder.moveToElement(getDriver().findElement(By.xpath("//*[contains(@class, 'dropdown dropup language-select')]//*[@data-lang='"+language+"']"))).click().perform();
+		
+				
+		}
+		
+
+	}
+
+

@@ -1,0 +1,237 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Sample Thucydides project 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ icpc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\Users\oshchegula\workspace2\icpc\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ icpc ---
+[INFO] Compiling 4 source files to c:\Users\oshchegula\workspace2\icpc\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ icpc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ icpc ---
+[INFO] Compiling 1 source file to c:\Users\oshchegula\workspace2\icpc\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.11:test (default-test) @ icpc ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ icpc ---
+[INFO] Building jar: c:\Users\oshchegula\workspace2\icpc\target\icpc-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-failsafe-plugin:2.11:integration-test (default) @ icpc ---
+[INFO] Failsafe report directory: c:\Users\oshchegula\workspace2\icpc\target\failsafe-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.dataart.jbehave.LoginTestSuite
+Processing system properties {}
+Using controls EmbedderControls[batch=false,skip=false,generateViewAfterStories=true,ignoreFailureInStories=true,ignoreFailureInView=true,verboseFailures=false,verboseFiltering=false,storyTimeoutInSecs=300,failOnStoryTimeout=false,threads=1]
+
+(BeforeStories)
+Before storyBeforeStories
+
+Running story com/dataart/stories/consult_dictionary/LoginTestStory.story
+
+(com/dataart/stories/consult_dictionary/LoginTestStory.story)
+Before storyLoginTestStory.story
+758 [pool-1-thread-1] INFO net.thucydides.core.Thucydides - 
+
+-------------------------------------------------------------------------------------------------------
+.___________. __    __   __    __    ______ ____    ____  _______   __   _______   _______     _______.
+|           ||  |  |  | |  |  |  |  /      |\   \  /   / |       \ |  | |       \ |   ____|   /       |
+`---|  |----`|  |__|  | |  |  |  | |  ,----' \   \/   /  |  .--.  ||  | |  .--.  ||  |__     |   (----`
+    |  |     |   __   | |  |  |  | |  |       \_    _/   |  |  |  ||  | |  |  |  ||   __|     \   \    
+    |  |     |  |  |  | |  `--'  | |  `----.    |  |     |  '--'  ||  | |  '--'  ||  |____.----)   |   
+    |__|     |__|  |__|  \______/   \______|    |__|     |_______/ |__| |_______/ |_______|_______/    
+                                                                                                       
+-------------------------------------------------------------------------------------------------------
+
+761 [pool-1-thread-1] INFO net.thucydides.core.Thucydides - Test Suite Started: Login test story
+Scenario: Login as valid user
+810 [pool-1-thread-1] INFO net.thucydides.core.Thucydides - 
+  _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
+ |_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
+   | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
+   | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
+   |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
+                                                                   
+
+TEST STARTED: Login as valid user
+--------------------------------------------------------------------
+972 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: is_on_the_login_page
+log4j:WARN No appenders could be found for logger (org.apache.http.client.protocol.RequestAddCookies).
+log4j:WARN Please initialize the log4j system properly.
+7137 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STEP DONE: is_on_the_login_page
+Given the user is on the Login page
+7646 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: enter
+9602 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STEP DONE: enter
+9766 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: click_login_button
+10141 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STEP DONE: click_login_button
+When the user enters name: admin@icpc.org.ua and password: e3r4t5 and click the 'login' button
+10630 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: should_see_a_page_title
+Auth - ICPC
+Then user should see a page title Additional User - ICPC (FAILED)
+(org.junit.ComparisonFailure: expected:<A[uth] - ICPC> but was:<A[dditional User] - ICPC>)
+Then user loged out (NOT PERFORMED)
+
+org.junit.ComparisonFailure: expected:<A[uth] - ICPC> but was:<A[dditional User] - ICPC>
+	at org.junit.Assert.assertEquals(Assert.java:123)
+	at org.junit.Assert.assertEquals(Assert.java:145)
+	at com.dataart.steps.UserLoginSteps.should_see_a_page_title(UserLoginSteps.java:42)
+	at com.dataart.steps.UserLoginSteps$$EnhancerByCGLIB$$9e0c3580.CGLIB$should_see_a_page_title$6(<generated>)
+	at com.dataart.steps.UserLoginSteps$$EnhancerByCGLIB$$9e0c3580$$FastClassByCGLIB$$e105f78d.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:285)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:261)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:125)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:51)
+	at com.dataart.steps.UserLoginSteps$$EnhancerByCGLIB$$9e0c3580.should_see_a_page_title(<generated>)
+	at com.dataart.jbehave.LoginTestSuite.userShouldSeeAPageTitleMessage(LoginTestSuite.java:34)
+	(reflection-invoke)
+	at org.jbehave.core.steps.StepCreator$ParametrisedStep.perform(StepCreator.java:595)
+	at org.jbehave.core.embedder.StoryRunner$FineSoFar.run(StoryRunner.java:535)
+...
+11335 [pool-1-thread-1] INFO net.thucydides.core.Thucydides - 
+           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
+  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
+ (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
+  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
+ (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
+          \_\                                                            
+
+TEST FAILED: Login as valid user
+--------------------------------------------------------------------------
+11337 [pool-1-thread-1] INFO net.thucydides.core.Thucydides - RELATED ISSUES: 
+11337 [pool-1-thread-1] INFO net.thucydides.core.Thucydides - 
+  _____ _    ___ _     _   _ ____  _____ 
+ |  ___/ \  |_ _| |   | | | |  _ \| ____|
+ | |_ / _ \  | || |   | | | | |_) |  _|  
+ |  _/ ___ \ | || |___| |_| |  _ <| |___ 
+ |_|/_/   \_\___|_____|\___/|_| \_\_____|
+                                         
+
+expected:<A[uth] - ICPC> but was:<A[dditional User] - ICPC>
+Scenario: As user i want to be able to see error message when i login without any credentials
+11338 [pool-1-thread-1] INFO net.thucydides.core.Thucydides - 
+  _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
+ |_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
+   | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
+   | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
+   |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
+                                                                   
+
+TEST STARTED: As user i want to be able to see error message when i login without any credentials
+--------------------------------------------------------------------
+11680 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: is_on_the_login_page
+12466 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STEP DONE: is_on_the_login_page
+Given the user is on the Login page
+12957 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: click_login_button
+13653 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STEP DONE: click_login_button
+When the user click the login button
+14181 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: should_see_invalid_flash_message
+Email or password is invalid
+14550 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STEP DONE: should_see_invalid_flash_message
+Then user should see invalid flash message Email or password is invalid
+
+14723 [pool-1-thread-1] INFO net.thucydides.core.Thucydides - 
+        __    _____ _____ ____ _____   ____   _    ____  ____  _____ ____  
+  _     \ \  |_   _| ____/ ___|_   _| |  _ \ / \  / ___|/ ___|| ____|  _ \ 
+ (_)_____| |   | | |  _| \___ \ | |   | |_) / _ \ \___ \\___ \|  _| | | | |
+  _|_____| |   | | | |___ ___) || |   |  __/ ___ \ ___) |___) | |___| |_| |
+ (_)     | |   |_| |_____|____/ |_|   |_| /_/   \_\____/|____/|_____|____/ 
+        /_/                                                                
+
+TEST PASSED: As user i want to be able to see error message when i login without any credentials
+----------------------------------------------------------------------------
+Scenario: As user i want to be able to see error message when i login with wrong credentials
+14724 [pool-1-thread-1] INFO net.thucydides.core.Thucydides - 
+  _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
+ |_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
+   | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
+   | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
+   |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
+                                                                   
+
+TEST STARTED: As user i want to be able to see error message when i login with wrong credentials
+--------------------------------------------------------------------
+15070 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: is_on_the_login_page
+15684 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STEP DONE: is_on_the_login_page
+Given the user is on the Login page
+16179 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: enter
+17656 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STEP DONE: enter
+17824 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: click_login_button
+18229 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STEP DONE: click_login_button
+When the user enters name: admin@icpc.org.ua and password: e3r4 and click the 'login' button
+18746 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: should_see_invalid_flash_message
+32724 [pool-1-thread-1] WARN net.thucydides.core.webdriver.WebDriverFacade - Failed to take screenshot - driver closed already? (Error communicating with the remote browser. It may have died.
+Build info: version: '2.42.2', revision: '6a6995d31c7c56c340d6f45a76976d43506cd6cc', time: '2014-06-03 10:52:47'
+System info: host: 'oshchegula', ip: '192.168.30.1', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_05'
+Driver info: driver.version: FirefoxDriver)
+Then user should see invalid flash message Email or password is invalid (FAILED)
+(org.openqa.selenium.ElementNotVisibleException: Window not found. The browser window may have been closed.
+Build info: version: '2.42.2', revision: '6a6995d31c7c56c340d6f45a76976d43506cd6cc', time: '2014-06-03 10:52:47'
+System info: host: 'oshchegula', ip: '192.168.30.1', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_05'
+Driver info: driver.version: unknown
+Build info: version: '2.42.2', revision: '6a6995d31c7c56c340d6f45a76976d43506cd6cc', time: '2014-06-03 10:52:47'
+System info: host: 'oshchegula', ip: '192.168.30.1', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_05'
+Driver info: driver.version: unknown)
+33751 [pool-1-thread-1] WARN net.thucydides.core.webdriver.WebDriverFacade - Failed to take screenshot - driver closed already? (Error communicating with the remote browser. It may have died.
+Build info: version: '2.42.2', revision: '6a6995d31c7c56c340d6f45a76976d43506cd6cc', time: '2014-06-03 10:52:47'
+System info: host: 'oshchegula', ip: '192.168.30.1', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_05'
+Driver info: driver.version: FirefoxDriver)
+
+org.openqa.selenium.ElementNotVisibleException: Window not found. The browser window may have been closed.
+Build info: version: '2.42.2', revision: '6a6995d31c7c56c340d6f45a76976d43506cd6cc', time: '2014-06-03 10:52:47'
+System info: host: 'oshchegula', ip: '192.168.30.1', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_05'
+Driver info: driver.version: unknown
+Build info: version: '2.42.2', revision: '6a6995d31c7c56c340d6f45a76976d43506cd6cc', time: '2014-06-03 10:52:47'
+System info: host: 'oshchegula', ip: '192.168.30.1', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_05'
+Driver info: driver.version: unknown
+	at net.thucydides.core.pages.WebElementFacadeImpl.throwErrorWithCauseIfPresent(WebElementFacadeImpl.java:616)
+	at net.thucydides.core.pages.WebElementFacadeImpl.waitUntilVisible(WebElementFacadeImpl.java:593)
+	at net.thucydides.core.pages.WebElementFacadeImpl.getText(WebElementFacadeImpl.java:718)
+	(reflection-invoke)
+	at net.thucydides.core.annotations.locators.SmartElementHandler.invoke(SmartElementHandler.java:58)
+	at com.sun.proxy.$Proxy18.getText(Unknown Source)
+	at com.dataart.pages.LoginPage.getInvalidFlashMessage(LoginPage.java:87)
+	at com.dataart.steps.UserLoginSteps.should_see_invalid_flash_message(UserLoginSteps.java:49)
+	at com.dataart.steps.UserLoginSteps$$EnhancerByCGLIB$$9e0c3580.CGLIB$should_see_invalid_flash_message$5(<generated>)
+	at com.dataart.steps.UserLoginSteps$$EnhancerByCGLIB$$9e0c3580$$FastClassByCGLIB$$e105f78d.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:285)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:261)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:125)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:51)
+	at com.dataart.steps.UserLoginSteps$$EnhancerByCGLIB$$9e0c3580.should_see_invalid_flash_message(<generated>)
+	at com.dataart.jbehave.LoginTestSuite.userShouldSeeAFlashMessage(LoginTestSuite.java:41)
+	(reflection-invoke)
+	at org.jbehave.core.steps.StepCreator$ParametrisedStep.perform(StepCreator.java:595)
+	at org.jbehave.core.embedder.StoryRunner$FineSoFar.run(StoryRunner.java:535)
+...
+Scenario: As user i want to be able to see error message when i login with correct email and without password
+33789 [pool-1-thread-1] INFO net.thucydides.core.Thucydides - 
+  _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
+ |_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
+   | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
+   | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
+   |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
+                                                                   
+
+TEST STARTED: As user i want to be able to see error message when i login with correct email and without password
+--------------------------------------------------------------------
+34803 [pool-1-thread-1] WARN net.thucydides.core.webdriver.WebDriverFacade - Failed to take screenshot - driver closed already? (Error communicating with the remote browser. It may have died.
+Build info: version: '2.42.2', revision: '6a6995d31c7c56c340d6f45a76976d43506cd6cc', time: '2014-06-03 10:52:47'
+System info: host: 'oshchegula', ip: '192.168.30.1', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_05'
+Driver info: driver.version: FirefoxDriver)
+35827 [pool-1-thread-1] WARN net.thucydides.core.webdriver.WebDriverFacade - Failed to take screenshot - driver closed already? (Error communicating with the remote browser. It may have died.
+Build info: version: '2.42.2', revision: '6a6995d31c7c56c340d6f45a76976d43506cd6cc', time: '2014-06-03 10:52:47'
+System info: host: 'oshchegula', ip: '192.168.30.1', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_05'
+Driver info: driver.version: FirefoxDriver)
+35827 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: is_on_the_login_page

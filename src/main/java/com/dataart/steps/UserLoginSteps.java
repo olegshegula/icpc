@@ -55,6 +55,21 @@ public class UserLoginSteps extends ScenarioSteps {
 
 		loginPage.clickOnRegisterLink();
 	}
+	
+	@Step
+	public void click_on_the_swich_language_button_and_choose(String language){
+		
+		
+		loginPage.chooseLanguage(language);
+	
+	}
+	
+	@Step
+	public void user_should_see_the_header(String header){
+		
+		Assert.assertEquals(loginPage.getHearer(),header);
+		
+	}
 
 	
 

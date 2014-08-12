@@ -32,3 +32,18 @@ Scenario: As user i want to be able to see registration page if i click on "Regi
 Given the user is on the Login page
 When the user click on the Register now link
 Then user should see a page title Signup Auth - ICPC
+
+Scenario: As user i want to be able to choose russian version of the site
+Given the user is on the Login page
+When the user click on the swich language button and choose ru
+Then user should see the header Всеукраинская студенческая олимпиада по программированию 
+
+Scenario: As user i want to be able to choose english version of the site
+Given the user is on the Login page
+When the user click on the swich language button and choose en
+Then user should see the header Ukranian Collegiate Programming Contest
+
+Scenario: As user i want to be able to choose ukrainian version of the site
+Given the user is on the Login page
+When the user click on the swich language button and choose uk
+Then user should see the header Всеукраїнська студентська олімпіада з програмування
