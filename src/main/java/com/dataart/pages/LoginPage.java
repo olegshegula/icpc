@@ -48,7 +48,7 @@ public class LoginPage extends PageObject {
 	@FindBy(xpath = "//*[@id='main']//a[text()='Logout']")
 	WebElementFacade logOut;
 
-	protected WebDriver driver;
+	
 
 	public void enterLoginAndPassword(String userName, String password) {
 		//$(userNameTextField).clear();
@@ -99,7 +99,7 @@ public class LoginPage extends PageObject {
 		
 		Actions builder = new Actions(getDriver());
 		getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		builder.moveToElement(chooseLang).build().perform();;
+		builder.moveToElement(chooseLang).build().perform();
 		builder.moveToElement(getDriver().findElement(By.xpath("//*[contains(@class, 'dropdown dropup language-select')]//*[@data-lang='"+language+"']"))).click().perform();
 		
 				

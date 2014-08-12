@@ -14,18 +14,7 @@ import org.jbehave.core.annotations.When;
 import com.dataart.steps.UserLoginSteps;
 
 public class LoginTestSuite extends ThucydidesJUnitStories {
-	@BeforeStories
-	public void setUp() {
-
-		System.out.println("HELLO");
-
-	}
-
-	@AfterStories
-	public void tearDown() {
-
-		System.out.println("BYBY!");
-	}
+	
 
 	@Steps
 	UserLoginSteps user;
