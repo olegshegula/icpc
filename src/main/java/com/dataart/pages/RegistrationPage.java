@@ -1,5 +1,8 @@
 package com.dataart.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
@@ -43,6 +46,9 @@ public class RegistrationPage extends PageObject {
 	WebElementFacade confirmMessage;
 	@FindBy(css = ".signup.btn.btn-primary.btn-lg")
 	WebElementFacade signUpButton;
+	
+	@FindBy(css = ".help-block")
+	List<WebElementFacade> listOfWarrnings;
 
 	public String getPageTitle() {
 
@@ -84,6 +90,11 @@ public class RegistrationPage extends PageObject {
 
 	public String getConfirmationMessage() {
 		return confirmMessage.getText();
+	}
+	
+	public int getNumberOfWarrnings(){
+		System.out.println(listOfWarrnings.size());
+		return listOfWarrnings.size();
 	}
 
 }

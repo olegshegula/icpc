@@ -18,21 +18,28 @@ public class RegistrationTestSuite extends ThucydidesJUnitStories {
 		userreg.is_on_the_registration_page();
 
 	}
+
 	@When("enter all correct credentials")
-	public void enterAllCorrectCredentials(){
+	public void enterAllCorrectCredentials() {
 		userreg.enter_all_correct_credentials();
-		
+
 	}
-	@When("click Sign up")
-	public void clickSignUp(){
+
+	@When("user click Sign up")
+	public void clickSignUp() {
 		userreg.click_Sign_up();
 	}
-	
-	@Then ("user should see the E-mail confirmation message $message")
-	public void userShouldSeeTheEMailConfirmationMessage(String message){
-		
+
+	@Then("user should see the E-mail confirmation message $message")
+	public void userShouldSeeTheEMailConfirmationMessage(String message) {
+
 		userreg.user_should_see_the_E_mail_confirmation_message(message);
 	}
-	
+
+	@Then("user should see $7 warrning messages about blank fields")
+	public void userShouldSeeTheWarrningMessagesAboutBlankFields(int number) {
+
+		userreg.user_should_see_the_warrning_messages_about_blank_fields(number);
+	}
 
 }
