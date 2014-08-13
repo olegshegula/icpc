@@ -49,6 +49,8 @@ public class RegistrationPage extends PageObject {
 	
 	@FindBy(css = ".help-block")
 	List<WebElementFacade> listOfWarrnings;
+	@FindBy(css =".btn.btn-primary.btn-resend-email")
+	WebElementFacade resendButton;
 
 	public String getPageTitle() {
 
@@ -95,6 +97,11 @@ public class RegistrationPage extends PageObject {
 	public int getNumberOfWarrnings(){
 		System.out.println(listOfWarrnings.size());
 		return listOfWarrnings.size();
+	}
+	
+	public boolean isResendButtonExist(){
+		return element(resendButton).isVisible();
+		
 	}
 
 }

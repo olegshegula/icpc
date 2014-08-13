@@ -40,4 +40,9 @@ public class UserRegistrationSteps extends ScenarioSteps {
 		Assert.assertEquals(registrationPage.getNumberOfWarrnings(),numbers);
 		
 	}
+	@Step
+	public void user_should_see_the_Resend_email_button(){
+		
+		Assert.assertTrue(registrationPage.isResendButtonExist());
+	}
 }

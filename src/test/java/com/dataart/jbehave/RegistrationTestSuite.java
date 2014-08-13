@@ -41,5 +41,11 @@ public class RegistrationTestSuite extends ThucydidesJUnitStories {
 
 		userreg.user_should_see_the_warrning_messages_about_blank_fields(number);
 	}
+	
+	@Then ("user should see the Resend email button")
+	public void userShouldSeeTheResendEmailButton(){
+		
+		userreg.user_should_see_the_Resend_email_button();
+	}
 
 }
