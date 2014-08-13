@@ -8,8 +8,8 @@ import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
 public class GeneralSteps {
-    
-        @Steps
+
+	@Steps
 	UserRegistrationSteps userreg;
 
 	@Steps
@@ -83,43 +83,41 @@ public class GeneralSteps {
 
 		user.user_should_see_the_header(header);
 	}
-	
+
 	@When("the user click on the DA link")
-	public void userClicksOnDALink(){
+	public void userClicksOnDALink() {
 		user.user_clicks_on_DA_link();
 	}
-	
+
 	@Then("user should be sent to DataArt page")
-	public void verifyDAPage(){
+	public void verifyDAPage() {
 		user.verify_DA_page();
 	}
-	
+
 	@When("the user click on the GitHub link")
-	public void userClicksOnGitHubLink(){
+	public void userClicksOnGitHubLink() {
 		user.user_clicks_on_GitHub_link();
 	}
-	
+
 	@Then("user should be sent to GitHub's project page")
-	public void verifyGithubPage(){
+	public void verifyGithubPage() {
 		user.verify_GitHub_page();
 	}
-	
+
 	@When("the user click on the Twitter link")
-	public void userClicksOnTwitterLink(){
+	public void userClicksOnTwitterLink() {
 		user.user_clicks_on_Twitter_link();
 	}
-	
+
 	@Then("user should be sent to Twitter's project page")
-	public void verifyTwitterPage(){
+	public void verifyTwitterPage() {
 		user.verify_Twitter_page();
 	}
-	
+
 	@Then("user should see correct project's email")
-	public void verifyProjectEmail(){
+	public void verifyProjectEmail() {
 		user.verify_project_email();
 	}
-        
-       
 
 	@Given("the user is on the Registration page")
 	public void givenTheUserIsOnTheRegisterPage() {
