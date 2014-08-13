@@ -10,7 +10,6 @@ import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -41,40 +40,34 @@ public class LoginPage extends PageObject {
 
 	@FindBy(xpath = "//*[@id='main']//td[2]")
 	WebElementFacade pageHeader;
-	
-	
+
 	@FindBy(xpath = "//*[@id='main']//a[text()='Logout']")
 	WebElementFacade logOut;
-	
+
 	@FindBy(xpath = "//*[@href='https://github.com/uaoleg/icpc.org.ua']")
 	WebElement githubLink;
-	
+
 	@FindBy(xpath = "//*[@href='http://www.dataart.ua']")
 	WebElement daLink;
-	
+
 	@FindBy(xpath = "//*[@href='https://twitter.com/IcpcOrgUa']")
 	WebElement twitterLink;
-	
+
 	@FindBy(xpath = "//*[@href='mailto:info@icpc.org.ua']")
 	WebElement mailtoLink;
-	
+
 	public final static String DA_PAGE_TITLE = "DataArt - разработка программного обеспечения на заказ. Вакансии программиста, работа для программиста в Петербурге, Воронеже.";
-	
+
 	public static final String GITHUB_PAGE_TITLE = "uaoleg/icpc.org.ua · GitHub";
-	
+
 	public static final String TWITTER_PAGE_TITLE = "icpc.org.ua (IcpcOrgUa) on Twitter";
-	
+
 	public static final String MAILTO_LINK_TEXT = "info@icpc.org.ua";
-	
-
-	
-
-	
 
 	public void enterLoginAndPassword(String userName, String password) {
-		//$(userNameTextField).clear();
-		//$(passwordTextField).clear();
-		$(userNameTextField).sendKeys(userName);;
+
+		$(userNameTextField).sendKeys(userName);
+		;
 		$(passwordTextField).sendKeys(password);
 
 	}
@@ -83,16 +76,16 @@ public class LoginPage extends PageObject {
 		loginButton.click();
 
 	}
-	
-	public void dataartLinkClick(){
+
+	public void dataartLinkClick() {
 		daLink.click();
 	}
-	
-	public void githubLinkClick(){
+
+	public void githubLinkClick() {
 		githubLink.click();
 	}
-	
-	public void twitterLinkClick(){
+
+	public void twitterLinkClick() {
 		twitterLink.click();
 	}
 
@@ -114,20 +107,17 @@ public class LoginPage extends PageObject {
 
 		return $(pageHeader).getText();
 	}
-	
-	public void goToNewWindow(){
-		String parentWindow = getDriver().getWindowHandle();
-		Set<String> handles =  getDriver().getWindowHandles();
-		   for(String windowHandle  : handles)
-		       {
-		       if(!windowHandle.equals(parentWindow))
-		          {
-		    	   getDriver().switchTo().window(windowHandle);
 
-		          }
-		       }
+	public void goToNewWindow() {
+		String parentWindow = getDriver().getWindowHandle();
+		Set<String> handles = getDriver().getWindowHandles();
+		for (String windowHandle : handles) {
+			if (!windowHandle.equals(parentWindow)) {
+				getDriver().switchTo().window(windowHandle);
+
+			}
+		}
 	}
-	
 
 	public String getInvalidFlashMessage() {
 
@@ -142,22 +132,22 @@ public class LoginPage extends PageObject {
 		return this.getTitle();
 	}
 
-	public void chooseLanguage(String language)  {
-		
+	public void chooseLanguage(String language) {
+
 		Actions builder = new Actions(getDriver());
 		getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		builder.moveToElement(chooseLang).build().perform();
-		builder.moveToElement(getDriver().findElement(By.xpath("//*[contains(@class, 'dropdown dropup language-select')]//*[@data-lang='"+language+"']"))).click().perform();
-		
-				
-		}
-	
-	public String getEmailLinkTest(){
+		builder.moveToElement(
+				getDriver()
+						.findElement(
+								By.xpath("//*[contains(@class, 'dropdown dropup language-select')]//*[@data-lang='"
+										+ language + "']"))).click().perform();
+
+	}
+
+	public String getEmailLinkTest() {
 		return mailtoLink.getText();
-		
-	}
-		
 
 	}
 
-
+}

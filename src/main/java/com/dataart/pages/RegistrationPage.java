@@ -19,7 +19,6 @@ import net.thucydides.core.pages.WebElementFacade;
 public class RegistrationPage extends PageObject {
 
 	@FindBy(name = "firstNameUk")
-	// @FindBy(xpath =".//*[@id='main']/div/div[4]/div/div[2]/div/div[1]/input")
 	WebElementFacade firstName;
 	@FindBy(name = "middleNameUk")
 	WebElementFacade middleName;
@@ -46,10 +45,10 @@ public class RegistrationPage extends PageObject {
 	WebElementFacade confirmMessage;
 	@FindBy(css = ".signup.btn.btn-primary.btn-lg")
 	WebElementFacade signUpButton;
-	
+
 	@FindBy(css = ".help-block")
 	List<WebElementFacade> listOfWarrnings;
-	@FindBy(css =".btn.btn-primary.btn-resend-email")
+	@FindBy(css = ".btn.btn-primary.btn-resend-email")
 	WebElementFacade resendButton;
 
 	public String getPageTitle() {
@@ -64,7 +63,8 @@ public class RegistrationPage extends PageObject {
 		user.setFirstNameField("Vasya");
 		user.setMiddleNameField("Vasiliy");
 		user.setLastNameField("Vasilievich");
-		user.setEmailField("Den" + (int) (Math.random() * 10000 + 1)+"@mail.ru");
+		user.setEmailField("Den" + (int) (Math.random() * 10000 + 1)
+				+ "@mail.ru");
 		user.setPasswordField("123123123");
 		user.setPasswordRepeatField("123123123");
 		user.setRole("student");
@@ -93,15 +93,15 @@ public class RegistrationPage extends PageObject {
 	public String getConfirmationMessage() {
 		return confirmMessage.getText();
 	}
-	
-	public int getNumberOfWarrnings(){
+
+	public int getNumberOfWarrnings() {
 		System.out.println(listOfWarrnings.size());
 		return listOfWarrnings.size();
 	}
-	
-	public boolean isResendButtonExist(){
+
+	public boolean isResendButtonExist() {
 		return element(resendButton).isVisible();
-		
+
 	}
 
 }

@@ -3,8 +3,6 @@ package com.dataart.jbehave;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.jbehave.ThucydidesJUnitStories;
 
-import org.jbehave.core.annotations.AfterStories;
-import org.jbehave.core.annotations.BeforeStories;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;

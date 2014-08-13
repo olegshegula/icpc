@@ -55,58 +55,60 @@ public class UserLoginSteps extends ScenarioSteps {
 
 		loginPage.clickOnRegisterLink();
 	}
-	
+
 	@Step
-	public void click_on_the_swich_language_button_and_choose(String language){
-		
-		
+	public void click_on_the_swich_language_button_and_choose(String language) {
+
 		loginPage.chooseLanguage(language);
-	
-	}
-	
-	@Step
-	public void user_should_see_the_header(String header){
-		
-		Assert.assertEquals(loginPage.getHearer(),header);
-		
+
 	}
 
 	@Step
-	public void user_clicks_on_DA_link(){
+	public void user_should_see_the_header(String header) {
+
+		Assert.assertEquals(loginPage.getHearer(), header);
+
+	}
+
+	@Step
+	public void user_clicks_on_DA_link() {
 		loginPage.dataartLinkClick();
 	}
-	
+
 	@Step
-	public void user_clicks_on_GitHub_link(){
+	public void user_clicks_on_GitHub_link() {
 		loginPage.githubLinkClick();
 	}
-	
+
 	@Step
-	public void user_clicks_on_Twitter_link(){
+	public void user_clicks_on_Twitter_link() {
 		loginPage.twitterLinkClick();
 	}
-	
+
 	@Step
-	public void verify_DA_page(){
+	public void verify_DA_page() {
 		loginPage.goToNewWindow();
 		Assert.assertEquals(loginPage.getPageTitle(), LoginPage.DA_PAGE_TITLE);
 	}
-	
+
 	@Step
-	public void verify_GitHub_page(){
+	public void verify_GitHub_page() {
 		loginPage.goToNewWindow();
-		Assert.assertEquals(loginPage.getPageTitle(), LoginPage.GITHUB_PAGE_TITLE);
+		Assert.assertEquals(loginPage.getPageTitle(),
+				LoginPage.GITHUB_PAGE_TITLE);
 	}
-	
+
 	@Step
-	public void verify_Twitter_page(){
+	public void verify_Twitter_page() {
 		loginPage.goToNewWindow();
-		Assert.assertEquals(loginPage.getPageTitle(), LoginPage.TWITTER_PAGE_TITLE);
+		Assert.assertEquals(loginPage.getPageTitle(),
+				LoginPage.TWITTER_PAGE_TITLE);
 	}
-	
+
 	@Step
-	public void verify_project_email(){
-		Assert.assertEquals(loginPage.getEmailLinkTest(), LoginPage.MAILTO_LINK_TEXT);
+	public void verify_project_email() {
+		Assert.assertEquals(loginPage.getEmailLinkTest(),
+				LoginPage.MAILTO_LINK_TEXT);
 	}
 
 }
