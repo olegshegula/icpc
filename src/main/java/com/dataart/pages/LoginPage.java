@@ -1,14 +1,7 @@
 package com.dataart.pages;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 
 import net.thucydides.core.annotations.At;
 import net.thucydides.core.annotations.DefaultUrl;
@@ -16,15 +9,20 @@ import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
 @DefaultUrl("http://acc.icpc.org.ua/auth/login")
 @At("http://acc.icpc.org.ua/auth/login")
 public class LoginPage extends PageObject {
 
 	@FindBy(xpath = "//input[@type='email']")
-	private WebElementFacade userNameTextField;
+	WebElementFacade userNameTextField;
 
 	@FindBy(xpath = "//input[@type='password']")
-	private WebElementFacade passwordTextField;
+	WebElementFacade passwordTextField;
 
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElementFacade loginButton;
@@ -47,20 +45,55 @@ public class LoginPage extends PageObject {
 	
 	@FindBy(xpath = "//*[@id='main']//a[text()='Logout']")
 	WebElementFacade logOut;
+	
+	@FindBy(xpath = "//*[@href='https://github.com/uaoleg/icpc.org.ua']")
+	WebElement githubLink;
+	
+	@FindBy(xpath = "//*[@href='http://www.dataart.ua']")
+	WebElement daLink;
+	
+	@FindBy(xpath = "//*[@href='https://twitter.com/IcpcOrgUa']")
+	WebElement twitterLink;
+	
+	@FindBy(xpath = "//*[@href='mailto:info@icpc.org.ua']")
+	WebElement mailtoLink;
+	
+	public final static String DA_PAGE_TITLE = "DataArt - разработка программного обеспечения на заказ. Вакансии программиста, работа для программиста в Петербурге, Воронеже.";
+	
+	public static final String GITHUB_PAGE_TITLE = "uaoleg/icpc.org.ua · GitHub";
+	
+	public static final String TWITTER_PAGE_TITLE = "icpc.org.ua (IcpcOrgUa) on Twitter";
+	
+	public static final String MAILTO_LINK_TEXT = "info@icpc.org.ua";
+	
+
+	
 
 	protected WebDriver driver;
 
 	public void enterLoginAndPassword(String userName, String password) {
 		//$(userNameTextField).clear();
 		//$(passwordTextField).clear();
-		$(userNameTextField).type(userName);
-		$(passwordTextField).type(password);
+		$(userNameTextField).sendKeys(userName);;
+		$(passwordTextField).sendKeys(password);
 
 	}
 
 	public void clickLogin() {
 		loginButton.click();
 
+	}
+	
+	public void dataartLinkClick(){
+		daLink.click();
+	}
+	
+	public void githubLinkClick(){
+		githubLink.click();
+	}
+	
+	public void twitterLinkClick(){
+		twitterLink.click();
 	}
 
 	public void clickOnRegisterLink() {
@@ -81,6 +114,20 @@ public class LoginPage extends PageObject {
 
 		return $(pageHeader).getText();
 	}
+	
+	public void goToNewWindow(){
+		String parentWindow = getDriver().getWindowHandle();
+		Set<String> handles =  getDriver().getWindowHandles();
+		   for(String windowHandle  : handles)
+		       {
+		       if(!windowHandle.equals(parentWindow))
+		          {
+		    	   getDriver().switchTo().window(windowHandle);
+
+		          }
+		       }
+	}
+	
 
 	public String getInvalidFlashMessage() {
 
@@ -104,6 +151,11 @@ public class LoginPage extends PageObject {
 		
 				
 		}
+	
+	public String getEmailLinkTest(){
+		return mailtoLink.getText();
+		
+	}
 		
 
 	}

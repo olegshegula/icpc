@@ -71,6 +71,42 @@ public class UserLoginSteps extends ScenarioSteps {
 		
 	}
 
+	@Step
+	public void user_clicks_on_DA_link(){
+		loginPage.dataartLinkClick();
+	}
 	
+	@Step
+	public void user_clicks_on_GitHub_link(){
+		loginPage.githubLinkClick();
+	}
+	
+	@Step
+	public void user_clicks_on_Twitter_link(){
+		loginPage.twitterLinkClick();
+	}
+	
+	@Step
+	public void verify_DA_page(){
+		loginPage.goToNewWindow();
+		Assert.assertEquals(loginPage.getPageTitle(), LoginPage.DA_PAGE_TITLE);
+	}
+	
+	@Step
+	public void verify_GitHub_page(){
+		loginPage.goToNewWindow();
+		Assert.assertEquals(loginPage.getPageTitle(), LoginPage.GITHUB_PAGE_TITLE);
+	}
+	
+	@Step
+	public void verify_Twitter_page(){
+		loginPage.goToNewWindow();
+		Assert.assertEquals(loginPage.getPageTitle(), LoginPage.TWITTER_PAGE_TITLE);
+	}
+	
+	@Step
+	public void verify_project_email(){
+		Assert.assertEquals(loginPage.getEmailLinkTest(), LoginPage.MAILTO_LINK_TEXT);
+	}
 
 }

@@ -21,10 +21,8 @@ Then user should see invalid flash message Email or password is invalid
 
 Scenario: As user i want to be able to see error message when i login with correct password and without email 
 Given the user is on the Login page
-
 When the user enters password: e3r4t5 and click the 'login' button
 Then user should see invalid flash message Email or password is invalid
-
 When the user enters name: admin@icpc.org.u and click the 'login' button
 Then user should see invalid flash message Email or password is invalid
 
@@ -46,4 +44,22 @@ Then user should see the header Ukranian Collegiate Programming Contest
 Scenario: As user i want to be able to choose ukrainian version of the site
 Given the user is on the Login page
 When the user click on the swich language button and choose uk
-Then user should see the header Всеукраїнська студентська олімпіада з програмування
+
+Scenario: As user i want to be able to get to the DA site when i click on the link
+Given the user is on the Login page
+When the user click on the DA link
+Then user should be sent to DataArt page
+
+Scenario: As user i want to be able to get to the GitHub's project page when i click on the link
+Given the user is on the Login page
+When the user click on the GitHub link
+Then user should be sent to GitHub's project page
+
+Scenario: As user i want to be able to get to the Twitter's project page when i click on the link
+Given the user is on the Login page
+When the user click on the Twitter link
+Then user should be sent to Twitter's project page
+
+Scenario: As user i want to see that email address of project is correct
+Given the user is on the Login page
+Then user should see correct project's email
