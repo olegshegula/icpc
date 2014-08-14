@@ -67,7 +67,7 @@ public class LoginPage extends PageObject {
 	public void enterLoginAndPassword(String userName, String password) {
 
 		$(userNameTextField).sendKeys(userName);
-		;
+		
 		$(passwordTextField).sendKeys(password);
 
 	}

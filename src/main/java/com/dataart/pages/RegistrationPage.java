@@ -1,7 +1,10 @@
 package com.dataart.pages;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import net.thucydides.core.annotations.DefaultUrl;
+import net.thucydides.core.pages.PageObject;
+import net.thucydides.core.pages.WebElementFacade;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -9,11 +12,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import com.dataart.model.User;
-
-import net.thucydides.core.annotations.At;
-import net.thucydides.core.annotations.DefaultUrl;
-import net.thucydides.core.pages.PageObject;
-import net.thucydides.core.pages.WebElementFacade;
 
 @DefaultUrl("http://acc.icpc.org.ua/auth/signup")
 public class RegistrationPage extends PageObject {
