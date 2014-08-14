@@ -77,8 +77,12 @@ public class RegistrationPage extends PageObject {
 		Actions builder = new Actions(getDriver());
 		builder.moveToElement(schoolList).click().build().perform();
 		$(getDriver().findElement(By.xpath("//*[@id='select2-drop']//input")))
-				.type(user.getSchool()).sendKeys(Keys.ENTER);
-
+				.type(user.getSchool());
+		waitForAnyTextToAppear(user.getSchool());
+		
+		$(getDriver().findElement(By.xpath("//*[@id='select2-drop']//input")))
+		.sendKeys(Keys.ENTER);
+		
 		$(recaptchaIgnore).click();
 		$(rulesAgree).click();
 	}
@@ -86,6 +90,12 @@ public class RegistrationPage extends PageObject {
 	public void clickSignUp() {
 
 		$(signUpButton).click();
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public String getConfirmationMessage() {
