@@ -6,9 +6,11 @@ import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.StepFactory;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
+
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
+import org.junit.Assert;
 import org.junit.runner.RunWith;
 
 import static net.thucydides.core.steps.StepData.withTestDataFrom;
@@ -172,6 +174,15 @@ public class GeneralSteps {
 		withTestDataFrom("/RegistrationData.csv").usingFactory(factory)
 				.run(userreg).enter_all_correct_credentials_form_file_source();
 		//userreg.user_should_see_the_Resend_email_button();
+	}
+	@When("enter not unique credentials")
+	public void userEnterNotUniqueCredentials(){
+		
+		userreg.enter_not_unique_credentials();
+	}
+	@Then("user should see error message $message")
+	public void userShouldSeeErrorMessage(String message){
+		userreg.user_should_see_DBerror_message(message);
 	}
 
 }

@@ -58,6 +58,8 @@ public class RegistrationPage extends PageObject {
 	List<WebElementFacade> listOfWarrnings;
 	@FindBy(css = ".btn.btn-primary.btn-resend-email")
 	WebElementFacade resendButton;
+	@FindBy(css=".help-block")
+	WebElementFacade errorDBmessage;
 
 	public String getPageTitle() {
 
@@ -182,5 +184,41 @@ public class RegistrationPage extends PageObject {
 		} else{getDriver().close();}
 	
 
+	}
+	
+	public void enterNotUniqueCredentials() {
+
+		User user = new User();
+
+		user.setFirstNameField("Vasya");
+		user.setMiddleNameField("Vasiliy");
+		user.setLastNameField("Vasilievich");
+		user.setEmailField("stuone@mailinator.com");
+		user.setPasswordField("1253456");
+		user.setPasswordRepeatField("1253456");
+		user.setRole("student");
+		user.setSchool("дн");
+
+		$(firstName).type(user.getFirstNameField());
+		$(middleName).type(user.getMiddleNameField());
+		$(lastName).type(user.getLastNameField());
+		$(email).type(user.getEmailField());
+		$(password).type(user.getPasswordField());
+		$(passwordRepeat).type(user.getPasswordRepeatField());
+		Actions builder = new Actions(getDriver());
+		builder.moveToElement(schoolList).click().build().perform();
+		$(getDriver().findElement(By.xpath("//*[@id='select2-drop']//input")))
+				.type(user.getSchool());
+		waitForAnyTextToAppear(user.getSchool());
+
+		$(getDriver().findElement(By.xpath("//*[@id='select2-drop']//input")))
+				.sendKeys(Keys.ENTER);
+
+		$(recaptchaIgnore).click();
+		$(rulesAgree).click();
+	}
+	public String getErrorDBMessage(){
+		waitForAllTextToAppear("Email is not unique in DB.");
+		return errorDBmessage.getText();
 	}
 }

@@ -25,3 +25,9 @@ Given the user is on the Registration page
 When enter all correct credentials
 And user click Sign up
 Then user should see the Resend email button
+
+Scenario: As user i want to be able to see error message if i am registering with not unique credentials
+Given the user is on the Registration page
+When enter not unique credentials
+And user click Sign up
+Then user should see error message Email is not unique in DB.
