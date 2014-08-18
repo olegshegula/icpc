@@ -184,5 +184,14 @@ public class GeneralSteps {
 	public void userShouldSeeErrorMessage(String message){
 		userreg.user_should_see_DBerror_message(message);
 	}
+	@When("user enter all correct credentials")
+	public void userEnterAllCorrectCredentials(){
+		userreg.user_enter_all_correct_credentials();
+	}
+	
+	@When("user check his emailbox $email $password and click on the confirmation link")
+	public void userCheckHisEmailbox(String email,String password){
+		userreg.user_check_his_emailbox_and_click_on_the_confirmation_link(email, password);
+	}
 
 }
