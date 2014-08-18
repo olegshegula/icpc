@@ -128,6 +128,7 @@ public class RegistrationPage extends PageObject {
 			String passwordField, String passwordRepeatField,
 			String studentRoleField, String schoolField) {
 
+		
 		$(firstName).sendKeys(firstNameField);
 		$(middleName).sendKeys(middleNameField);
 		$(lastName).sendKeys(lastNameField);
@@ -170,6 +171,16 @@ public class RegistrationPage extends PageObject {
 		$(recaptchaIgnore).click();
 		$(rulesAgree).click();
 		$(signUpButton).click();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(firstNameField!=null){
+		getDriver().get("http://acc.icpc.org.ua/auth/signup");
+		} else{getDriver().close();}
+	
 
 	}
 }

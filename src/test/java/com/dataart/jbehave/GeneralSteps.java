@@ -4,11 +4,15 @@ import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.StepFactory;
-
+import net.thucydides.junit.annotations.UseTestDataFrom;
+import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
+import org.junit.runner.RunWith;
+
 import static net.thucydides.core.steps.StepData.withTestDataFrom;
+
 import com.dataart.steps.UserLoginSteps;
 import com.dataart.steps.UserRegistrationSteps;
 
@@ -167,7 +171,7 @@ public class GeneralSteps {
 		StepFactory factory = new StepFactory(pages);
 		withTestDataFrom("/RegistrationData.csv").usingFactory(factory)
 				.run(userreg).enter_all_correct_credentials_form_file_source();
-
+		//userreg.user_should_see_the_Resend_email_button();
 	}
 
 }
