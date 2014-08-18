@@ -72,4 +72,13 @@ public class UserRegistrationSteps extends ScenarioSteps {
 	public void enter_all_correct_credentials_form_file_source() {
 		registrationPage.enterCredentialsFromCSV(firstName,middleName,lastName,email,password,passwordRepeat,role,school);
 	}
+	@Step
+	public void enter_not_unique_credentials(){
+		registrationPage.enterNotUniqueCredentials();
+	}
+	@Step
+	public void user_should_see_DBerror_message(String message){
+		Assert.assertEquals(registrationPage.getErrorDBMessage(),message);
+		
+	}
 }
