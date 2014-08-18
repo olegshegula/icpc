@@ -8,6 +8,7 @@ import net.thucydides.core.pages.WebElementFacade;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
@@ -29,8 +30,17 @@ public class RegistrationPage extends PageObject {
 	@FindBy(name = "passwordRepeat")
 	WebElementFacade passwordRepeat;
 
-	@FindBy(css = ".btn.btn-default [value='student']")
-	WebElementFacade studentRole;
+	// @FindBy(css = ".btn.btn-default [value='student']")
+	// WebElementFacade studentRole;
+
+	@FindBy(css = ".btn.btn-default")
+	List<WebElement> userrole;
+
+	@FindBy(css = ".dropdown-menu.pull-right>li>a")
+	List<WebElement> coordinatorList;
+
+	@FindBy(css = ".caption")
+	WebElement coordinatorRole;
 
 	@FindBy(css = ".select2-chosen")
 	WebElementFacade schoolList;
@@ -56,6 +66,7 @@ public class RegistrationPage extends PageObject {
 	}
 
 	public void enterCredentials() {
+
 		User user = new User();
 
 		user.setFirstNameField("Vasya");
@@ -79,10 +90,10 @@ public class RegistrationPage extends PageObject {
 		$(getDriver().findElement(By.xpath("//*[@id='select2-drop']//input")))
 				.type(user.getSchool());
 		waitForAnyTextToAppear(user.getSchool());
-		
+
 		$(getDriver().findElement(By.xpath("//*[@id='select2-drop']//input")))
-		.sendKeys(Keys.ENTER);
-		
+				.sendKeys(Keys.ENTER);
+
 		$(recaptchaIgnore).click();
 		$(rulesAgree).click();
 	}
@@ -112,4 +123,64 @@ public class RegistrationPage extends PageObject {
 
 	}
 
+	public void enterCredentialsFromCSV(String firstNameField,
+			String middleNameField, String lastNameField, String emailField,
+			String passwordField, String passwordRepeatField,
+			String studentRoleField, String schoolField) {
+
+		
+		$(firstName).sendKeys(firstNameField);
+		$(middleName).sendKeys(middleNameField);
+		$(lastName).sendKeys(lastNameField);
+		// $(email).sendKeys(emailField);
+		$(email).sendKeys(
+				"Den" + (int) (Math.random() * 10000 + 1) + "@mail.ru");
+		$(password).sendKeys(passwordField);
+
+		$(passwordRepeat).sendKeys(passwordRepeatField);
+
+		// choose different roles
+		if (studentRoleField.equals("student")) {
+
+		} else if (studentRoleField.equals("coach")) {
+			userrole.get(1).click();
+
+		} else if (studentRoleField.equals("coordinator_ukraine")) {
+			coordinatorRole.click();
+			coordinatorList.get(0).click();
+		} else if (studentRoleField.equals("coordinator_region")) {
+
+			coordinatorRole.click();
+			coordinatorList.get(1).click();
+		} else if (studentRoleField.equals("coordinator_state")) {
+
+			coordinatorRole.click();
+			coordinatorList.get(2).click();
+		}
+
+		Actions builder = new Actions(getDriver());
+
+		builder.moveToElement(schoolList).click().build().perform();
+		$(getDriver().findElement(By.xpath("//*[@id='select2-drop']//input")))
+				.type("дн");
+		waitForAnyTextToAppear("дн");
+
+		$(getDriver().findElement(By.xpath("//*[@id='select2-drop']//input")))
+				.sendKeys(Keys.ENTER);
+
+		$(recaptchaIgnore).click();
+		$(rulesAgree).click();
+		$(signUpButton).click();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(firstNameField!=null){
+		getDriver().get("http://acc.icpc.org.ua/auth/signup");
+		} else{getDriver().close();}
+	
+
+	}
 }

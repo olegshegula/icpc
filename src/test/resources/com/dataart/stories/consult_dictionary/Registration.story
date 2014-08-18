@@ -1,3 +1,10 @@
+Story: Registration to icpc.org.ua
+ 
+Narrative: 
+In order to be able to cleate a new users with different rols
+As a user
+I want to be able to register new users
+
 Scenario: As user i want to be able to see E-mail confirmation message when i register with correct credentials	
 Given the user is on the Registration page
 When enter all correct credentials
@@ -9,8 +16,6 @@ Given the user is on the Registration page
 When user click Sign up
 Then user should see 7 warrning messages about blank fields
 
-Scenario: As user i want to be able to see Resend email button when i register with correct credentials	
+Scenario: As user i want to be able to see E-mail confirmation message when i register with correct credentials are taken form CSV file
 Given the user is on the Registration page
-When enter all correct credentials
-And user click Sign up
-Then user should see the Resend email button
+When enter all correct credentials form file source

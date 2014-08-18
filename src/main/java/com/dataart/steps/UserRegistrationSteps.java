@@ -6,12 +6,32 @@ import com.dataart.model.User;
 import com.dataart.pages.RegistrationPage;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
+import net.thucydides.junit.annotations.Qualifier;
 
 public class UserRegistrationSteps extends ScenarioSteps {
 
+	public UserRegistrationSteps(Pages pages) {
+		super(pages);
+
+	}
+
 	RegistrationPage registrationPage;
 
+	public String firstName;
+	public String middleName;
+	public String lastName;
+	public String email;
+	public String password;
+	public String passwordRepeat;
+	public String role;
+	public String school;
+
+	@Qualifier
+    public String getQualifier() {
+        return firstName;
+    }
 	@Step
 	public void is_on_the_registration_page() {
 
@@ -34,15 +54,22 @@ public class UserRegistrationSteps extends ScenarioSteps {
 		Assert.assertEquals(registrationPage.getConfirmationMessage(), message);
 
 	}
-	
+
 	@Step
-	public void user_should_see_the_warrning_messages_about_blank_fields(int numbers){
-		Assert.assertEquals(registrationPage.getNumberOfWarrnings(),numbers);
-		
+	public void user_should_see_the_warrning_messages_about_blank_fields(
+			int numbers) {
+		Assert.assertEquals(registrationPage.getNumberOfWarrnings(), numbers);
+
 	}
+
 	@Step
-	public void user_should_see_the_Resend_email_button(){
-		
+	public void user_should_see_the_Resend_email_button() {
+
 		Assert.assertTrue(registrationPage.isResendButtonExist());
+	}
+
+	@Step
+	public void enter_all_correct_credentials_form_file_source() {
+		registrationPage.enterCredentialsFromCSV(firstName,middleName,lastName,email,password,passwordRepeat,role,school);
 	}
 }
