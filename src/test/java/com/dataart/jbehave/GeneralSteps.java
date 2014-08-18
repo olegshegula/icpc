@@ -1,13 +1,21 @@
 package com.dataart.jbehave;
 
-import com.dataart.steps.UserLoginSteps;
-import com.dataart.steps.UserRegistrationSteps;
+import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.core.pages.Pages;
+import net.thucydides.core.steps.StepFactory;
+
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
+import static net.thucydides.core.steps.StepData.withTestDataFrom;
+import com.dataart.steps.UserLoginSteps;
+import com.dataart.steps.UserRegistrationSteps;
 
 public class GeneralSteps {
+
+	@ManagedPages
+	Pages pages;
 
 	@Steps
 	UserRegistrationSteps userreg;
@@ -152,6 +160,14 @@ public class GeneralSteps {
 	public void userShouldSeeTheResendEmailButton() {
 
 		userreg.user_should_see_the_Resend_email_button();
+	}
+
+	@When("enter all correct credentials form file source")
+	public void userEnterAllCorrectCredentialsFormFileSource() throws Throwable {
+		StepFactory factory = new StepFactory(pages);
+		withTestDataFrom("/RegistrationData.csv").usingFactory(factory)
+				.run(userreg).enter_all_correct_credentials_form_file_source();
+
 	}
 
 }
