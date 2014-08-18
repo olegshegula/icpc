@@ -13,6 +13,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import com.dataart.model.User;
+import com.dataart.utils.CheckGmail;
 
 @DefaultUrl("http://acc.icpc.org.ua/auth/signup")
 public class RegistrationPage extends PageObject {
@@ -29,9 +30,6 @@ public class RegistrationPage extends PageObject {
 	WebElementFacade password;
 	@FindBy(name = "passwordRepeat")
 	WebElementFacade passwordRepeat;
-
-	// @FindBy(css = ".btn.btn-default [value='student']")
-	// WebElementFacade studentRole;
 
 	@FindBy(css = ".btn.btn-default")
 	List<WebElement> userrole;
@@ -58,7 +56,7 @@ public class RegistrationPage extends PageObject {
 	List<WebElementFacade> listOfWarrnings;
 	@FindBy(css = ".btn.btn-primary.btn-resend-email")
 	WebElementFacade resendButton;
-	@FindBy(css=".help-block")
+	@FindBy(css = ".help-block")
 	WebElementFacade errorDBmessage;
 
 	public String getPageTitle() {
@@ -104,9 +102,9 @@ public class RegistrationPage extends PageObject {
 
 		$(signUpButton).click();
 		try {
-			Thread.sleep(500);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
@@ -130,7 +128,6 @@ public class RegistrationPage extends PageObject {
 			String passwordField, String passwordRepeatField,
 			String studentRoleField, String schoolField) {
 
-		
 		$(firstName).sendKeys(firstNameField);
 		$(middleName).sendKeys(middleNameField);
 		$(lastName).sendKeys(lastNameField);
@@ -179,13 +176,14 @@ public class RegistrationPage extends PageObject {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(firstNameField!=null){
-		getDriver().get("http://acc.icpc.org.ua/auth/signup");
-		} else{getDriver().close();}
-	
+		if (firstNameField != null) {
+			getDriver().get("http://acc.icpc.org.ua/auth/signup");
+		} else {
+			getDriver().close();
+		}
 
 	}
-	
+
 	public void enterNotUniqueCredentials() {
 
 		User user = new User();
@@ -217,8 +215,50 @@ public class RegistrationPage extends PageObject {
 		$(recaptchaIgnore).click();
 		$(rulesAgree).click();
 	}
-	public String getErrorDBMessage(){
+
+	public String getErrorDBMessage() {
 		waitForAllTextToAppear("Email is not unique in DB.");
 		return errorDBmessage.getText();
 	}
+
+	public void userEnterAllCorrectCredentials() {
+
+		User user = new User();
+
+		user.setFirstNameField("Олег");
+		user.setMiddleNameField("Шевченко");
+		user.setLastNameField("Семенович");
+		user.setEmailField("myicpctest@gmail.com");
+		user.setPasswordField("123myicpctest");
+		user.setPasswordRepeatField("123myicpctest");
+		user.setRole("student");
+		user.setSchool("дн");
+
+		$(firstName).type(user.getFirstNameField());
+		$(middleName).type(user.getMiddleNameField());
+		$(lastName).type(user.getLastNameField());
+		$(email).type(user.getEmailField());
+		$(password).type(user.getPasswordField());
+		$(passwordRepeat).type(user.getPasswordRepeatField());
+		Actions builder = new Actions(getDriver());
+		builder.moveToElement(schoolList).click().build().perform();
+		$(getDriver().findElement(By.xpath("//*[@id='select2-drop']//input")))
+				.type(user.getSchool());
+		waitForAnyTextToAppear(user.getSchool());
+
+		$(getDriver().findElement(By.xpath("//*[@id='select2-drop']//input")))
+				.sendKeys(Keys.ENTER);
+
+		$(recaptchaIgnore).click();
+		$(rulesAgree).click();
+	}
+
+	public void checkGmailAndGetLink(String email, String password) {
+
+		getDriver().get(
+				CheckGmail.checkEMailAndGetConfirmationLink(email, password));
+	}
+
+
+
 }

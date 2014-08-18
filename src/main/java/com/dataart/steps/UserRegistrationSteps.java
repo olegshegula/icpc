@@ -81,4 +81,13 @@ public class UserRegistrationSteps extends ScenarioSteps {
 		Assert.assertEquals(registrationPage.getErrorDBMessage(),message);
 		
 	}
+	@Step
+	public void user_enter_all_correct_credentials(){
+		registrationPage.userEnterAllCorrectCredentials();
+	}
+	@Step
+	public void user_check_his_emailbox_and_click_on_the_confirmation_link(String email, String password){
+		registrationPage.checkGmailAndGetLink(email, password);
+	}
+	
 }
