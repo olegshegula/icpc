@@ -153,5 +153,97 @@ public class GeneralSteps {
 
 		userreg.user_should_see_the_Resend_email_button();
 	}
+	
+	@Then("user should see the News link")
+	public void userShouldSeetheNewsLink(){
+		user.is_News_Link_present();
+	}
+	
+	@Then("user should see the Docs link")
+	public void userShouldSeetheDocsLink(){
+		user.is_Docs_Link_present();
+	}
+	
+	@Then("user should see the Teams link")
+	public void userShouldSeetheTeamsLink(){
+		user.is_Teams_Link_present();
+	}
+	
+	@Then("user should see the Results link")
+	public void userShouldSeetheResultsLink(){
+		user.is_Results_Link_present();
+	}
+	
+	@Then("user should see the QA link")
+	public void userShouldSeetheQALink(){
+		user.is_QA_Link_present();
+	}
+	
+	@When("user clicks on the News link")
+	public void user_clicks_on_News_link(){
+		user.user_clicks_on_News_link();
+	}
+	
+	@Then("user is on the News page")
+	public void verifyNewsPage(){
+		user.verify_News_Page();
+	}
+	
+	@When("user clicks on the Teams link")
+	public void user_clicks_on_Teams_link(){
+		user.user_clicks_on_Teams_link();
+	}
+	
+	@Then("user is on the Teams page")
+	public void verifyTeamsPage(){
+		user.verify_Teams_Page();
+	}
+	
+	@When("user clicks on the Results link")
+	public void user_clicks_on_Results_link(){
+		user.user_clicks_on_Results_link();
+	}
+	
+	@Then("user is on the Results page")
+	public void verifyResultsPage(){
+		user.verify_Results_Page();
+	}
+	
+	@When("user clicks on the QA link")
+	public void user_clicks_on_QA_link(){
+		user.user_clicks_on_QA_link();
+	}
+	
+	@Then("user is on the QA page")
+	public void verifyQAPage(){
+		user.verify_QA_Page();
+	}
+	
+	@When("user clicks on the Docs link and chooses Regulations item")
+	public void user_clicks_on_the_Docs_link_and_chooses_Regulations_item(){
+		user.click_Docs_and_choose_Regulations();
+	}
+	
+	@Then("user is on the Regulations Docs page")
+	public void verifyRegulationDocsPage(){
+		user.verify_Regulation_Docs_Page();
+	}
+	
+	@When("user clicks on the Docs link and chooses Guidance item")
+	public void user_clicks_on_the_Docs_link_and_chooses_Guidance_item(){
+		user.click_Docs_and_choose_Guidance();
+	}
+	
+	@Then("user is on the Guidance Docs page")
+	public void verifyGuidanceDocsPage(){
+		user.verify_Guidance_Docs_Page();
+	}
+	
+	@Then("user tries to download doc")
+	public void verifyIfDocIsDownloadable(){
+		user.verify_if_Doc_is_Downloadable();
+	}
+	
+	
 
 }

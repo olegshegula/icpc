@@ -15,6 +15,7 @@ public class UserLoginSteps extends ScenarioSteps {
 	public void is_on_the_login_page() {
 
 		loginPage.open();
+		loginPage.chooseLanguage(LoginPage.EN_LANG_CHOOSE);
 	}
 
 	@Step
@@ -88,12 +89,14 @@ public class UserLoginSteps extends ScenarioSteps {
 	@Step
 	public void verify_DA_page() {
 		loginPage.goToNewWindow();
+		loginPage.driverWaitForTitle();
 		Assert.assertEquals(loginPage.getPageTitle(), LoginPage.DA_PAGE_TITLE);
 	}
 
 	@Step
 	public void verify_GitHub_page() {
 		loginPage.goToNewWindow();
+		loginPage.driverWaitForTitle();
 		Assert.assertEquals(loginPage.getPageTitle(),
 				LoginPage.GITHUB_PAGE_TITLE);
 	}
@@ -101,6 +104,7 @@ public class UserLoginSteps extends ScenarioSteps {
 	@Step
 	public void verify_Twitter_page() {
 		loginPage.goToNewWindow();
+		loginPage.driverWaitForTitle();
 		Assert.assertEquals(loginPage.getPageTitle(),
 				LoginPage.TWITTER_PAGE_TITLE);
 	}
@@ -109,6 +113,104 @@ public class UserLoginSteps extends ScenarioSteps {
 	public void verify_project_email() {
 		Assert.assertEquals(loginPage.getEmailLinkTest(),
 				LoginPage.MAILTO_LINK_TEXT);
+	}
+	
+	@Step
+	public void is_News_Link_present(){
+		loginPage.chooseLanguage(LoginPage.EN_LANG_CHOOSE);
+		Assert.assertTrue(loginPage.isElementPresent(LoginPage.newsLink));
+	}
+	
+	@Step
+	public void is_Docs_Link_present(){
+		Assert.assertTrue(loginPage.isElementPresent(LoginPage.docsLink));
+	}
+	
+	@Step
+	public void is_Teams_Link_present(){
+		Assert.assertTrue(loginPage.isElementPresent(LoginPage.teamsLink));
+	}
+	
+	@Step
+	public void is_Results_Link_present(){
+		Assert.assertTrue(loginPage.isElementPresent(LoginPage.resultsLink));
+	}
+	
+	@Step
+	public void is_QA_Link_present(){
+		Assert.assertTrue(loginPage.isElementPresent(LoginPage.qaLink));
+	}
+	
+	@Step
+	public void user_clicks_on_News_link() {
+		loginPage.newsLinkClick();
+	}
+	
+	@Step
+	public void user_clicks_on_Teams_link() {
+		loginPage.teamLinkClick();
+	}
+	
+	@Step
+	public void user_clicks_on_Results_link() {
+		loginPage.resultLinkClick();
+	}
+	
+	@Step
+	public void user_clicks_on_QA_link() {
+		loginPage.qaLinkClick();
+	}
+	
+	@Step
+	public void verify_News_Page() {
+		loginPage.driverWaitForTitle();
+		Assert.assertEquals(loginPage.getPageTitle(), LoginPage.NEWS_PAGE_TITLE);
+	}
+	
+	@Step
+	public void verify_Teams_Page() {
+		loginPage.driverWaitForTitle();
+		Assert.assertEquals(loginPage.getPageTitle(), LoginPage.TEAMS_PAGE_TITLE);
+	}
+	
+	@Step
+	public void verify_Results_Page() {
+		loginPage.driverWaitForTitle();
+		Assert.assertEquals(loginPage.getPageTitle(), LoginPage.RESULTS_PAGE_TITLE);
+	}
+	
+	@Step
+	public void verify_QA_Page() {
+		loginPage.driverWaitForTitle();
+		Assert.assertEquals(loginPage.getPageTitle(), LoginPage.QA_PAGE_TITLE);
+	}
+	
+	@Step
+	public void click_Docs_and_choose_Regulations() {
+		loginPage.chooseDocs(LoginPage.regulationsDocsMenuItem);
+	}
+	
+	@Step
+	public void click_Docs_and_choose_Guidance() {
+		loginPage.driverWait();
+		loginPage.chooseDocs(LoginPage.guidanceDocsMenuItem);
+	}
+	
+	@Step
+	public void verify_Regulation_Docs_Page() {
+		loginPage.driverWaitForTitle();
+		Assert.assertEquals(loginPage.getPageTitle(), LoginPage.REGULATIONS_DOCS_PAGE_TITLE);
+	}
+	
+	@Step
+	public void verify_Guidance_Docs_Page() {
+		loginPage.driverWaitForTitle();
+		Assert.assertEquals(loginPage.getPageTitle(), LoginPage.GUIDANCE_DOCS_PAGE_TITLE);
+	}
+	
+	@Step
+	public void verify_if_Doc_is_Downloadable(){
+		Assert.assertTrue(loginPage.isResourceAvailableByUrl(loginPage.getDocumentHrefLink()));
 	}
 
 }

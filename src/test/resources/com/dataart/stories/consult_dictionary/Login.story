@@ -45,6 +45,9 @@ Scenario: As user i want to be able to choose ukrainian version of the site
 Given the user is on the Login page
 When the user click on the swich language button and choose uk
 
+
+
+
 Scenario: As user i want to be able to get to the DA site when i click on the link
 Given the user is on the Login page
 When the user click on the DA link
@@ -63,3 +66,42 @@ Then user should be sent to Twitter's project page
 Scenario: As user i want to see that email address of project is correct
 Given the user is on the Login page
 Then user should see correct project's email
+
+Scenario: As user i want to see links News, Docs, Teams, Results, QA on the Login page 
+Given the user is on the Login page
+Then user should see the News link
+Then user should see the Docs link
+Then user should see the Teams link
+Then user should see the Results link
+Then user should see the QA link
+
+Scenario: As user i want to be able to get to News page when I click on appropriate link
+Given the user is on the Login page
+When user clicks on the News link
+Then user is on the News page
+
+Scenario: As user i want to be able to get to Teams page when I click on appropriate link
+Given the user is on the Login page
+When user clicks on the Teams link
+Then user is on the Teams page
+
+Scenario: As user i want to be able to get to Results page when I click on appropriate link
+Given the user is on the Login page
+When user clicks on the Results link
+Then user is on the Results page
+
+Scenario: As user i want to be able to get to QA page when I click on appropriate link
+Given the user is on the Login page
+When user clicks on the QA link
+Then user is on the QA page
+
+
+Scenario: As user i want to be able to get to Regulation Docs page when I click on Docs dropdown menu and choose appropriate link
+Given the user is on the Login page
+When user clicks on the Docs link and chooses Regulations item
+Then user is on the Regulations Docs page
+
+Scenario: As user i want to be able to get to Guidance Docs page when I click on Docs dropdown menu and choose appropriate link
+Given the user is on the Login page
+When user clicks on the Docs link and chooses Guidance item
+Then user is on the Guidance Docs page
