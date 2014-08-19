@@ -5,6 +5,16 @@ In order to be able to cleate a new users with different roles
 As a user
 I want to be able to register new users
 
+Scenario: As user i want to be able to register and log into new accout
+Given the user is on the Registration page
+When user enter all correct credentials
+And user click Sign up
+When user check his emailbox myicpctest@gmail.com 123myicpctest and click on the confirmation link
+Then user should see the verified E-mail confirmation message Email verified successfully!
+When user click on go to login page link
+When the user enters name: myicpctest@gmail.com and password: 123myicpctest and click the 'login' button
+Then user should see a page title Additional User - ICPC
+
 Scenario: As user i want to be able to see E-mail confirmation message when i register with correct credentials	
 Given the user is on the Registration page
 When enter all correct credentials
@@ -31,13 +41,3 @@ Given the user is on the Registration page
 When enter not unique credentials
 And user click Sign up
 Then user should see error message Email is not unique in DB.
-
-Scenario: As user i want to be able to register and log into new accout
-Given the user is on the Registration page
-When user enter all correct credentials
-And user click Sign up
-When user check his emailbox myicpctest@gmail.com 123myicpctest and click on the confirmation link
-Then user should see the verified E-mail confirmation message Email verified successfully!
-When user click on go to login page link
-When the user enters name: myicpctest@gmail.com and password: 123myicpctest and click the 'login' button
-Then user should see a page title Additional User - ICPC

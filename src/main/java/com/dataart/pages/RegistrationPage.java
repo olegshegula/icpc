@@ -261,6 +261,12 @@ public class RegistrationPage extends PageObject {
 
 	public void checkGmailAndGetLink(String email, String password) {
 
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			System.out.println("Time out!");
+			e.printStackTrace();
+		}
 		getDriver().get(
 				CheckGmail.checkEMailAndGetConfirmationLink(email, password));
 	}
