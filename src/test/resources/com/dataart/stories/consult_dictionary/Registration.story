@@ -14,6 +14,7 @@ Then user should see the verified E-mail confirmation message Email verified suc
 When user click on go to login page link
 When the user enters name: myicpctest@gmail.com and password: 123myicpctest and click the 'login' button
 Then user should see a page title Additional User - ICPC
+Then user loged out
 
 Scenario: As user i want to be able to see E-mail confirmation message when i register with correct credentials	
 Given the user is on the Registration page
