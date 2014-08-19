@@ -193,5 +193,13 @@ public class GeneralSteps {
 	public void userCheckHisEmailbox(String email,String password){
 		userreg.user_check_his_emailbox_and_click_on_the_confirmation_link(email, password);
 	}
+	@Then("user should see the verified E-mail confirmation message $message")
+	public void userShouldSeeTheVerifiedEmailConfirmationMessage(String message){
+		userreg.user_should_see_the_verified_Email_confirmation_message(message);
+	}
+	@When("user click on go to login page link")
+	public void userClickOnGoToLoginPageLink(){
+		userreg.user_click_on_go_to_login_page_link();
+	}
 
 }

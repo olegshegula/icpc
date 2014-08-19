@@ -1,5 +1,6 @@
 package com.dataart.pages;
 
+import java.io.IOException;
 import java.util.List;
 
 import net.thucydides.core.annotations.DefaultUrl;
@@ -14,6 +15,7 @@ import org.openqa.selenium.support.FindBy;
 
 import com.dataart.model.User;
 import com.dataart.utils.CheckGmail;
+import com.dataart.utils.DBClean;
 
 @DefaultUrl("http://acc.icpc.org.ua/auth/signup")
 public class RegistrationPage extends PageObject {
@@ -58,6 +60,10 @@ public class RegistrationPage extends PageObject {
 	WebElementFacade resendButton;
 	@FindBy(css = ".help-block")
 	WebElementFacade errorDBmessage;
+	@FindBy(css=".panel-heading")
+	WebElementFacade emailVerifiedMessage;
+	@FindBy(css=".panel-body>a")
+	WebElementFacade linkToLoginPage;
 
 	public String getPageTitle() {
 
@@ -222,7 +228,7 @@ public class RegistrationPage extends PageObject {
 	}
 
 	public void userEnterAllCorrectCredentials() {
-
+		DBClean.deleteEmailFromDB("email=myicpc");
 		User user = new User();
 
 		user.setFirstNameField("Олег");
@@ -260,5 +266,12 @@ public class RegistrationPage extends PageObject {
 	}
 
 
-
+	public String getEmailVirifiedMessage(){
+		return emailVerifiedMessage.getText();
+	}
+	public void clickOnLoginLink(){
+		
+		linkToLoginPage.click();
+		waitForAbsenceOf(".panel-body>a");
+	}
 }
