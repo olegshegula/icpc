@@ -89,5 +89,13 @@ public class UserRegistrationSteps extends ScenarioSteps {
 	public void user_check_his_emailbox_and_click_on_the_confirmation_link(String email, String password){
 		registrationPage.checkGmailAndGetLink(email, password);
 	}
+	@Step
+	public void user_should_see_the_verified_Email_confirmation_message(String message){
+		Assert.assertEquals(registrationPage.getEmailVirifiedMessage(),message);
+	}
+	@Step
+	public void user_click_on_go_to_login_page_link(){
+		registrationPage.clickOnLoginLink();
+	}
 	
 }
