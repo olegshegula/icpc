@@ -5,6 +5,7 @@ import net.thucydides.jbehave.ThucydidesJUnitStories;
 public class AcceptanceTestSuite extends ThucydidesJUnitStories {
 	public AcceptanceTestSuite() {
 		// findStoriesCalled("**/Registration.story");
+		//findStoriesCalled("**/Login.story");
 		findStoriesCalled("*.story");
 	}
 }

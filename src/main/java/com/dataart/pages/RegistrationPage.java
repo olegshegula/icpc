@@ -15,6 +15,7 @@ import org.openqa.selenium.support.FindBy;
 import com.dataart.model.User;
 import com.dataart.utils.CheckGmail;
 import com.dataart.utils.DBClean;
+import com.dataart.utils.Vars;
 
 @DefaultUrl("http://acc.icpc.org.ua/auth/signup")
 public class RegistrationPage extends PageObject {
@@ -290,5 +291,13 @@ public class RegistrationPage extends PageObject {
 		
 		linkToLoginPage.click();
 		waitForAbsenceOf(".panel-body>a");
+	}
+	public boolean clickResndButton(){
+		//delete an email before resend
+		CheckGmail.deleteConfirmationMail(Vars.GMAIL_EMAIL, Vars.GMAIL_PASS);
+		waitABit(2000);
+		$(resendButton).click();
+		waitABit(5000);
+		return CheckGmail.checkConfirmationMail(Vars.GMAIL_EMAIL, Vars.GMAIL_PASS);
 	}
 }

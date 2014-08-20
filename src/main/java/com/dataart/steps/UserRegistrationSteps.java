@@ -29,9 +29,10 @@ public class UserRegistrationSteps extends ScenarioSteps {
 	public String school;
 
 	@Qualifier
-    public String getQualifier() {
-        return firstName;
-    }
+	public String getQualifier() {
+		return firstName;
+	}
+
 	@Step
 	public void is_on_the_registration_page() {
 
@@ -70,32 +71,46 @@ public class UserRegistrationSteps extends ScenarioSteps {
 
 	@Step
 	public void enter_all_correct_credentials_form_file_source() {
-		registrationPage.enterCredentialsFromCSV(firstName,middleName,lastName,email,password,passwordRepeat,role,school);
+		registrationPage.enterCredentialsFromCSV(firstName, middleName,
+				lastName, email, password, passwordRepeat, role, school);
 	}
+
 	@Step
-	public void enter_not_unique_credentials(){
+	public void enter_not_unique_credentials() {
 		registrationPage.enterNotUniqueCredentials();
 	}
+
 	@Step
-	public void user_should_see_DBerror_message(String message){
-		Assert.assertEquals(registrationPage.getErrorDBMessage(),message);
-		
+	public void user_should_see_DBerror_message(String message) {
+		Assert.assertEquals(registrationPage.getErrorDBMessage(), message);
+
 	}
+
 	@Step
-	public void user_enter_all_correct_credentials(){
+	public void user_enter_all_correct_credentials() {
 		registrationPage.userEnterAllCorrectCredentials();
 	}
+
 	@Step
-	public void user_check_his_emailbox_and_click_on_the_confirmation_link(String email, String password){
+	public void user_check_his_emailbox_and_click_on_the_confirmation_link(
+			String email, String password) {
 		registrationPage.checkGmailAndGetLink(email, password);
 	}
+
 	@Step
-	public void user_should_see_the_verified_Email_confirmation_message(String message){
-		Assert.assertEquals(registrationPage.getEmailVirifiedMessage(),message);
+	public void user_should_see_the_verified_Email_confirmation_message(
+			String message) {
+		Assert.assertEquals(registrationPage.getEmailVirifiedMessage(), message);
 	}
+
 	@Step
-	public void user_click_on_go_to_login_page_link(){
+	public void user_click_on_go_to_login_page_link() {
 		registrationPage.clickOnLoginLink();
 	}
-	
+
+	@Step
+	public void user_click_on_Resend_email_button() {
+		Assert.assertTrue(registrationPage.clickResndButton());
+	}
+
 }

@@ -42,3 +42,9 @@ Given the user is on the Registration page
 When enter not unique credentials
 And user click Sign up
 Then user should see error message Email is not unique in DB.
+
+Scenario: As user i want to be able to resend an email again after registration
+Given the user is on the Registration page
+When user enter all correct credentials
+When user click Sign up
+Then user click on Resend email button and check email 
