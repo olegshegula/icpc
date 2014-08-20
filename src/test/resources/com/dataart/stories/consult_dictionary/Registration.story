@@ -16,6 +16,12 @@ When the user enters name: myicpctest@gmail.com and password: 123myicpctest and 
 Then user should see a page title Additional User - ICPC
 Then user loged out
 
+Scenario: As user i want to be able to resend an email again after registration
+Given the user is on the Registration page
+When user enter all correct credentials
+And user click Sign up
+Then user click on Resend email button and check email 
+
 Scenario: As user i want to be able to see E-mail confirmation message when i register with correct credentials	
 Given the user is on the Registration page
 When enter all correct credentials
@@ -42,9 +48,3 @@ Given the user is on the Registration page
 When enter not unique credentials
 And user click Sign up
 Then user should see error message Email is not unique in DB.
-
-Scenario: As user i want to be able to resend an email again after registration
-Given the user is on the Registration page
-When user enter all correct credentials
-When user click Sign up
-Then user click on Resend email button and check email 
