@@ -1,6 +1,5 @@
 package com.dataart.pages;
 
-import java.io.IOException;
 import java.util.List;
 
 import net.thucydides.core.annotations.DefaultUrl;
@@ -72,7 +71,13 @@ public class RegistrationPage extends PageObject {
 	}
 
 	public void enterCredentials() {
-
+		//db clean
+		try {
+			DBClean.deleteEmailFromDB("email=Den");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		User user = new User();
 
 		user.setFirstNameField("Vasya");
@@ -228,7 +233,13 @@ public class RegistrationPage extends PageObject {
 	}
 
 	public void userEnterAllCorrectCredentials() {
-		DBClean.deleteEmailFromDB("email=myicpc");
+		//clean DB
+		try {
+			DBClean.deleteEmailFromDB("email=myicpc");
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
 		User user = new User();
 
 		user.setFirstNameField("Олег");
