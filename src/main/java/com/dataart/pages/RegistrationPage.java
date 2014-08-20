@@ -2,6 +2,7 @@ package com.dataart.pages;
 
 import java.util.List;
 
+import net.thucydides.core.annotations.At;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
@@ -18,6 +19,7 @@ import com.dataart.utils.DBClean;
 import com.dataart.utils.Vars;
 
 @DefaultUrl("http://acc.icpc.org.ua/auth/signup")
+@At("http://acc.icpc.org.ua/auth/signup")
 public class RegistrationPage extends PageObject {
 
 	@FindBy(name = "firstNameUk")
@@ -64,6 +66,10 @@ public class RegistrationPage extends PageObject {
 	WebElementFacade emailVerifiedMessage;
 	@FindBy(css=".panel-body>a")
 	WebElementFacade linkToLoginPage;
+	@FindBy(css=".btn.btn-lg.btn-warning")
+	WebElementFacade baylorImportButton;
+	
+	
 
 	public String getPageTitle() {
 
@@ -300,4 +306,12 @@ public class RegistrationPage extends PageObject {
 		waitABit(5000);
 		return CheckGmail.checkConfirmationMail(Vars.GMAIL_EMAIL, Vars.GMAIL_PASS);
 	}
+	public void clickOnBaylorButton(){
+		$(baylorImportButton).click();
+	}
+	public String getEmailFromField(){
+		System.out.println(email.getAttribute("value"));
+		return $(email).getAttribute("value");
+	}
+	
 }
