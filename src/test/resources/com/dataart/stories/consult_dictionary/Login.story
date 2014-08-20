@@ -96,6 +96,7 @@ When user clicks on the QA link
 Then user is on the QA page
 
 
+
 Scenario: As user i want to be able to get to Regulation Docs page when I click on Docs dropdown menu and choose appropriate link
 Given the user is on the Login page
 When user clicks on the Docs link and chooses Regulations item
