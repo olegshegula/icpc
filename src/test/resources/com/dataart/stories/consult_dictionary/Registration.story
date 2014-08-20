@@ -1,7 +1,7 @@
 Story: Registration to icpc.org.ua
  
 Narrative: 
-In order to be able to cleate a new users with different roles
+In order to be able to create a new users with different roles
 As a user
 I want to be able to register new users
 
