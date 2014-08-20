@@ -4,6 +4,7 @@ import org.junit.Assert;
 
 import com.dataart.model.User;
 import com.dataart.pages.RegistrationPage;
+import com.dataart.utils.Vars;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
@@ -111,6 +112,19 @@ public class UserRegistrationSteps extends ScenarioSteps {
 	@Step
 	public void user_click_on_Resend_email_button() {
 		Assert.assertTrue(registrationPage.clickResndButton());
+	}
+	@Step
+	public void user_click_on_the_button_for_import_from_baylor_website(){
+		registrationPage.clickOnBaylorButton();
+	}
+	
+	@Step
+	public void user_should_be_on_the_registration_page(){
+		registrationPage.shouldBeDisplayed();
+	}
+	@Step
+	public void user_should_see_that_all_fields_are_filled(String data){
+		Assert.assertEquals(data,registrationPage.getEmailFromField());
 	}
 
 }

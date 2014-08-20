@@ -15,6 +15,7 @@ import org.junit.runner.RunWith;
 
 import static net.thucydides.core.steps.StepData.withTestDataFrom;
 
+import com.dataart.steps.UserImportSteps;
 import com.dataart.steps.UserLoginSteps;
 import com.dataart.steps.UserRegistrationSteps;
 
@@ -28,6 +29,9 @@ public class GeneralSteps {
 
 	@Steps
 	UserLoginSteps user;
+	
+	@Steps
+	UserImportSteps userimport;
 
 	@Given("the user is on the Login page")
 	public void givenTheUserIsOnTheLoginPage() {
@@ -212,5 +216,34 @@ public class GeneralSteps {
 	public void user_click_Sign_up() {
 		userreg.user_click_on_Resend_email_button();
 	}
+	@When("user click on the button for import from baylor website")
+	public void userClickOnTheButtonForImportFromBaylorWebsite(){
+		userreg.user_click_on_the_button_for_import_from_baylor_website();
+	}
 
+	@When("user close the baylor popup window")
+	public void userCloseThePopupWindow(){
+		userimport.user_close_the_baylor_popup_window();
+	}
+	@Then("user should be on the registration page")
+	public void userShouldBeOnTheRegistrationPage(){
+		userreg.user_should_be_on_the_registration_page();
+	}
+	@When("user enter credentials $email $password")
+	public void user_enter_correct_credentials(String email,String password ){
+		userimport.user_enter_credentials(email, password);
+	}
+	@When("click import button")
+	public void userClickImportButton(){
+		userimport.click_import_button();
+	}
+	@Then("user should see that all fields are filled $data")
+	public void userShouldSeeThatAllFieldsAreFilled(String data){
+		userreg.user_should_see_that_all_fields_are_filled(data);
+		
+	}
+	@Then("user will be able see error message $message")
+	public void userShouldSeeBaylorErrorMessage(String message){
+		userimport.user_should_see_error_message_on_popup(message);
+	}
 }
