@@ -63,3 +63,9 @@ Then user should be sent to Twitter's project page
 Scenario: As user i want to see that email address of project is correct
 Given the user is on the Login page
 Then user should see correct project's email
+
+Scenario: As user i want to be able to go to reset password page
+Given the user is on the Login page
+When the user click on the ? link
+Then user should see a page title Passwordreset Auth - ICPC
+

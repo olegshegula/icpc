@@ -246,4 +246,8 @@ public class GeneralSteps {
 	public void userShouldSeeBaylorErrorMessage(String message){
 		userimport.user_should_see_error_message_on_popup(message);
 	}
+	@When("the user click on the ? link")
+	public void theUserClickOnTheForgetPasswordlink(){
+		user.the_user_click_on_the_forget_password_link();
+	}
 }
