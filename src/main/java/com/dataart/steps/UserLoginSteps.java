@@ -110,5 +110,10 @@ public class UserLoginSteps extends ScenarioSteps {
 		Assert.assertEquals(loginPage.getEmailLinkTest(),
 				LoginPage.MAILTO_LINK_TEXT);
 	}
+	@Step
+	public void the_user_click_on_the_forget_password_link(){
+		loginPage.clickOnForgetLink();
+		
+	}
 
 }

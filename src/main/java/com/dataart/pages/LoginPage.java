@@ -55,6 +55,8 @@ public class LoginPage extends PageObject {
 
 	@FindBy(xpath = "//*[@href='mailto:info@icpc.org.ua']")
 	WebElement mailtoLink;
+	@FindBy(css=".form-group>a")
+	WebElementFacade forgetPasswordLink;
 
 	public final static String DA_PAGE_TITLE = "DataArt - разработка программного обеспечения на заказ. Вакансии программиста, работа для программиста в Петербурге, Воронеже.";
 
@@ -148,6 +150,12 @@ public class LoginPage extends PageObject {
 	public String getEmailLinkTest() {
 		return mailtoLink.getText();
 
+	}
+	
+	public void clickOnForgetLink(){
+		Actions builder = new Actions(getDriver());
+		getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		builder.moveToElement(forgetPasswordLink).click().perform();
 	}
 
 }
