@@ -17,6 +17,7 @@ import static net.thucydides.core.steps.StepData.withTestDataFrom;
 
 import com.dataart.steps.UserImportSteps;
 import com.dataart.steps.UserLoginSteps;
+import com.dataart.steps.UserPasswordResetSteps;
 import com.dataart.steps.UserRegistrationSteps;
 
 public class GeneralSteps {
@@ -29,9 +30,12 @@ public class GeneralSteps {
 
 	@Steps
 	UserLoginSteps user;
-	
+
 	@Steps
 	UserImportSteps userimport;
+
+	@Steps
+	UserPasswordResetSteps userpasswordreset;
 
 	@Given("the user is on the Login page")
 	public void givenTheUserIsOnTheLoginPage() {
@@ -216,38 +220,68 @@ public class GeneralSteps {
 	public void user_click_Sign_up() {
 		userreg.user_click_on_Resend_email_button();
 	}
+
 	@When("user click on the button for import from baylor website")
-	public void userClickOnTheButtonForImportFromBaylorWebsite(){
+	public void userClickOnTheButtonForImportFromBaylorWebsite() {
 		userreg.user_click_on_the_button_for_import_from_baylor_website();
 	}
 
 	@When("user close the baylor popup window")
-	public void userCloseThePopupWindow(){
+	public void userCloseThePopupWindow() {
 		userimport.user_close_the_baylor_popup_window();
 	}
+
 	@Then("user should be on the registration page")
-	public void userShouldBeOnTheRegistrationPage(){
+	public void userShouldBeOnTheRegistrationPage() {
 		userreg.user_should_be_on_the_registration_page();
 	}
+
 	@When("user enter credentials $email $password")
-	public void user_enter_correct_credentials(String email,String password ){
+	public void user_enter_correct_credentials(String email, String password) {
 		userimport.user_enter_credentials(email, password);
 	}
+
 	@When("click import button")
-	public void userClickImportButton(){
+	public void userClickImportButton() {
 		userimport.click_import_button();
 	}
+
 	@Then("user should see that all fields are filled $data")
-	public void userShouldSeeThatAllFieldsAreFilled(String data){
+	public void userShouldSeeThatAllFieldsAreFilled(String data) {
 		userreg.user_should_see_that_all_fields_are_filled(data);
-		
+
 	}
+
 	@Then("user will be able see error message $message")
-	public void userShouldSeeBaylorErrorMessage(String message){
+	public void userShouldSeeBaylorErrorMessage(String message) {
 		userimport.user_should_see_error_message_on_popup(message);
 	}
+
 	@When("the user click on the ? link")
-	public void theUserClickOnTheForgetPasswordlink(){
+	public void theUserClickOnTheForgetPasswordlink() {
 		user.the_user_click_on_the_forget_password_link();
 	}
+
+	@Given("the user is on the Password reset page")
+	public void givenTheUserIsOnThePasswordResetPage() {
+		userpasswordreset.is_user_on_the_password_reset_page();
+
+	}
+	@When("user click on Reset password button")
+	public void userClickOnResetPasswordButton(){
+		userpasswordreset.user_click_on_reset_password_button();
+	}
+	@Then("user should see email warrning message $message")
+	public void userShouldSeeEmailWarrningMessage(String message){
+		userpasswordreset.user_should_see_email_warrning_message(message);
+	}
+	@Then("user should see capcha warrning message $message")
+	public void userShouldSeeCapchaWarrningMessage(String message){
+		userpasswordreset.user_should_see_capcha_warrning_message(message);
+	}	
+	@When("user enter an email $email")
+	public void userEnterAnEmail(String email){
+		userpasswordreset.user_enter_email(email);
+	}
+	
 }
