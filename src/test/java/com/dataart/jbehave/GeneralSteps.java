@@ -7,6 +7,7 @@ import net.thucydides.core.steps.StepFactory;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 
+import org.jbehave.core.annotations.BeforeScenario;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
@@ -18,6 +19,7 @@ import static net.thucydides.core.steps.StepData.withTestDataFrom;
 import com.dataart.steps.UserImportSteps;
 import com.dataart.steps.UserLoginSteps;
 import com.dataart.steps.UserPasswordResetSteps;
+import com.dataart.steps.UserProfileSteps;
 import com.dataart.steps.UserRegistrationSteps;
 
 public class GeneralSteps {
@@ -36,11 +38,19 @@ public class GeneralSteps {
 
 	@Steps
 	UserPasswordResetSteps userpasswordreset;
+	
+	@Steps
+	UserProfileSteps userprofile;
 
 	@Given("the user is on the Login page")
 	public void givenTheUserIsOnTheLoginPage() {
 		user.is_on_the_login_page();
 
+	}
+	@BeforeScenario
+	public void setUp(){
+		pages.getDriver().manage().deleteAllCookies();
+		pages.getDriver().manage().window().maximize();
 	}
 
 	@When("the user enters name: $userName and password: $password and click the 'login' button")
@@ -284,4 +294,42 @@ public class GeneralSteps {
 		userpasswordreset.user_enter_email(email);
 	}
 	
+	@Given("the user is signed in with $userName $password")
+	public void theUserIsSignedInWith(String userName,String password){
+		
+		user.the_user_is_signed_in_with(userName, password);
+	}
+	@When("user move to general info tab")
+	public void userMoveToGeneralInfoTab(){
+		userprofile.user_move_to_general_info_tab();
+	}
+	@When("user enter current password $password")
+	public void userEnterCurrentPassword(String password){
+		userprofile.user_enter_current_password(password);
+	}
+	@When("user enter new password $password")
+	public void userEnterNewPassword(String password){
+		userprofile.user_enter_new_password(password);
+		
+	}
+	@When("user repeate new password $password")
+	public void userRepeateNewPassword(String password){
+		userprofile.user_repeate_new_password(password);
+	}
+	@When("user click change password button")
+	public void userClickChangePassword(){
+		userprofile.user_click_change_password_button();
+	}
+	@Then("user should see sucess message $message")
+	public void userShouldSeeSucessMessage(String message){
+		userprofile.user_should_see_sucess_message(message);
+	}
+	@Then("the user changes the password back")
+	public void theUserChangesThePasswordBack(){
+		userprofile.the_user_changs_password_back();
+	}
+	@Then("user should see error field message $message")
+	public void userShouldSeeErorFieldMessage(String message){
+		userprofile.user_should_see_error_field_message(message);
+	}
 }

@@ -5,6 +5,7 @@ import org.junit.Assert;
 import com.dataart.pages.LoginPage;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.StepGroup;
 import net.thucydides.core.steps.ScenarioSteps;
 
 public class UserLoginSteps extends ScenarioSteps {
@@ -88,12 +89,14 @@ public class UserLoginSteps extends ScenarioSteps {
 	@Step
 	public void verify_DA_page() {
 		loginPage.goToNewWindow();
+		waitABit(2000);
 		Assert.assertEquals(loginPage.getPageTitle(), LoginPage.DA_PAGE_TITLE);
 	}
 
 	@Step
 	public void verify_GitHub_page() {
 		loginPage.goToNewWindow();
+		waitABit(2000);
 		Assert.assertEquals(loginPage.getPageTitle(),
 				LoginPage.GITHUB_PAGE_TITLE);
 	}
@@ -101,6 +104,7 @@ public class UserLoginSteps extends ScenarioSteps {
 	@Step
 	public void verify_Twitter_page() {
 		loginPage.goToNewWindow();
+		waitABit(2000);
 		Assert.assertEquals(loginPage.getPageTitle(),
 				LoginPage.TWITTER_PAGE_TITLE);
 	}
@@ -115,5 +119,13 @@ public class UserLoginSteps extends ScenarioSteps {
 		loginPage.clickOnForgetLink();
 		
 	}
+	
+	@StepGroup
+	public void the_user_is_signed_in_with(String userName, String password){
+		is_on_the_login_page();
+		enter(userName,password);		
+		click_login_button();
+	}
+	
 
 }
