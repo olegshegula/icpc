@@ -7,6 +7,7 @@ public interface Vars {
 	final String GMAIL_PASS = "123myicpctest";
 	final String BAYLOR_HEADER = "Import from icpc.baylor.edu";
 	final String BAYLOR_EMAIL ="111@mailinator.com";
+	final String MAININFO_URL ="http://acc.icpc.org.ua/user/me";
 	
 	
 }
