@@ -1,7 +1,5 @@
 package com.dataart.jbehave;
 
-import org.jbehave.core.annotations.BeforeScenario;
-
 import net.thucydides.jbehave.ThucydidesJUnitStories;
 
 public class AcceptanceTestSuite extends ThucydidesJUnitStories {

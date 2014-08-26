@@ -1,15 +1,12 @@
 package com.dataart.steps;
 
-import org.jbehave.core.annotations.BeforeScenario;
-
 import junit.framework.Assert;
-
-import com.dataart.pages.ProfilePage;
-import com.dataart.utils.Vars;
-
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.StepGroup;
 import net.thucydides.core.steps.ScenarioSteps;
+
+import com.dataart.pages.ProfilePage;
+import com.dataart.utils.Vars;
 
 public class UserProfileSteps extends ScenarioSteps{
 

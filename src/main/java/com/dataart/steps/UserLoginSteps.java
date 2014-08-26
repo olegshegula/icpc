@@ -89,30 +89,27 @@ public class UserLoginSteps extends ScenarioSteps {
 	@Step
 	public void verify_DA_page() {
 		loginPage.goToNewWindow();
-		waitABit(2000);
-		Assert.assertEquals(loginPage.getPageTitle(), LoginPage.DA_PAGE_TITLE);
+		waitABit(3000);
+		Assert.assertEquals(LoginPage.DA_PAGE_TITLE,loginPage.getPageTitle());
 	}
 
 	@Step
 	public void verify_GitHub_page() {
 		loginPage.goToNewWindow();
-		waitABit(2000);
-		Assert.assertEquals(loginPage.getPageTitle(),
-				LoginPage.GITHUB_PAGE_TITLE);
+		waitABit(5000);
+		Assert.assertEquals(LoginPage.GITHUB_PAGE_TITLE,loginPage.getPageTitle());
 	}
 
 	@Step
 	public void verify_Twitter_page() {
 		loginPage.goToNewWindow();
-		waitABit(2000);
-		Assert.assertEquals(loginPage.getPageTitle(),
-				LoginPage.TWITTER_PAGE_TITLE);
+		waitABit(3000);
+		Assert.assertEquals(LoginPage.TWITTER_PAGE_TITLE,loginPage.getPageTitle());
 	}
 
 	@Step
 	public void verify_project_email() {
-		Assert.assertEquals(loginPage.getEmailLinkTest(),
-				LoginPage.MAILTO_LINK_TEXT);
+		Assert.assertEquals(LoginPage.MAILTO_LINK_TEXT,loginPage.getEmailLinkTest());
 	}
 	@Step
 	public void the_user_click_on_the_forget_password_link(){
