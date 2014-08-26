@@ -45,16 +45,16 @@ public class LoginPage extends PageObject {
 	WebElementFacade logOut;
 
 	@FindBy(xpath = "//*[@href='https://github.com/uaoleg/icpc.org.ua']")
-	WebElement githubLink;
+	WebElementFacade githubLink;
 
 	@FindBy(xpath = "//*[@href='http://www.dataart.ua']")
-	WebElement daLink;
+	WebElementFacade daLink;
 
 	@FindBy(xpath = "//*[@href='https://twitter.com/IcpcOrgUa']")
 	WebElement twitterLink;
 
 	@FindBy(xpath = "//*[@href='mailto:info@icpc.org.ua']")
-	WebElement mailtoLink;
+	WebElementFacade mailtoLink;
 	@FindBy(css=".form-group>a")
 	WebElementFacade forgetPasswordLink;
 
@@ -80,15 +80,15 @@ public class LoginPage extends PageObject {
 	}
 
 	public void dataartLinkClick() {
-		daLink.click();
+		$(daLink).click();
 	}
 
 	public void githubLinkClick() {
-		githubLink.click();
+		$(githubLink).click();
 	}
 
 	public void twitterLinkClick() {
-		twitterLink.click();
+		$(twitterLink).click();
 	}
 
 	public void clickOnRegisterLink() {

@@ -66,7 +66,7 @@ public class UserRegistrationSteps extends ScenarioSteps {
 
 	@Step
 	public void user_should_see_the_Resend_email_button() {
-
+		waitABit(1000);
 		Assert.assertTrue(registrationPage.isResendButtonExist());
 	}
 
