@@ -89,7 +89,7 @@ public class UserLoginSteps extends ScenarioSteps {
 	@Step
 	public void verify_DA_page() {
 		loginPage.goToNewWindow();
-		waitABit(3000);
+		waitABit(5000);
 		Assert.assertEquals(LoginPage.DA_PAGE_TITLE,loginPage.getPageTitle());
 	}
 
@@ -103,7 +103,7 @@ public class UserLoginSteps extends ScenarioSteps {
 	@Step
 	public void verify_Twitter_page() {
 		loginPage.goToNewWindow();
-		waitABit(3000);
+		waitABit(5000);
 		Assert.assertEquals(LoginPage.TWITTER_PAGE_TITLE,loginPage.getPageTitle());
 	}
 

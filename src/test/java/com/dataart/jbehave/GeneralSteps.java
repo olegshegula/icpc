@@ -16,8 +16,10 @@ import org.junit.runner.RunWith;
 
 import static net.thucydides.core.steps.StepData.withTestDataFrom;
 
+import com.dataart.model.News;
 import com.dataart.steps.UserImportSteps;
 import com.dataart.steps.UserLoginSteps;
+import com.dataart.steps.UserNewsSteps;
 import com.dataart.steps.UserPasswordResetSteps;
 import com.dataart.steps.UserProfileSteps;
 import com.dataart.steps.UserRegistrationSteps;
@@ -41,6 +43,9 @@ public class GeneralSteps {
 	
 	@Steps
 	UserProfileSteps userprofile;
+	
+	@Steps
+	UserNewsSteps usernews;
 
 	@Given("the user is on the Login page")
 	public void givenTheUserIsOnTheLoginPage() {
@@ -51,6 +56,7 @@ public class GeneralSteps {
 	public void setUp(){
 		pages.getDriver().manage().deleteAllCookies();
 		pages.getDriver().manage().window().maximize();
+		
 	}
 
 	@When("the user enters name: $userName and password: $password and click the 'login' button")
@@ -331,5 +337,33 @@ public class GeneralSteps {
 	@Then("user should see error field message $message")
 	public void userShouldSeeErorFieldMessage(String message){
 		userprofile.user_should_see_error_field_message(message);
+	}
+	@When("user go to news menu")
+	public void userGoToNewsMenu(){
+		usernews.user_go_to_news_menu();
+	}
+	@When("user click on add news button")
+	public void userClickOnAddNewsButton(){
+		usernews.user_click_on_add_news_button();
+	}
+	@When("user enter the title")
+	public void userEnterTheTitle(){
+		usernews.user_enter_the_title();
+	}
+	@When("user enter enter the body and click save news")
+	public void userEnterTheBody(){
+		usernews.user_enter_enter_the_body();
+	}
+	@When("user click on publish button")
+	public void userClickOnPublishButton(){
+		usernews.user_click_on_publish_button();
+	}
+	@Then("user should see created news on the top of news page")
+	public void userShouldSeeCreatedNewsOnTheTopOfNewsPage(){
+		usernews.user_should_see_created_news_on_the_top_of_news_page();
+	}
+	@When("user choose a picture to load $name")
+	public void userChooseAPictureToLoad(String name){
+		usernews.user_choose_a_picture(name);
 	}
 }

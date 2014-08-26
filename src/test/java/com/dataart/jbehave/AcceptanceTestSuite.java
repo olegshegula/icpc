@@ -10,6 +10,7 @@ public class AcceptanceTestSuite extends ThucydidesJUnitStories {
 		//findStoriesCalled("**/PasswordReset.story");
 		findStoriesCalled("*.story");
 		//findStoriesCalled("**/UserProfile.story");
+		//findStoriesCalled("**/News.story");	
 	}
 
 }
