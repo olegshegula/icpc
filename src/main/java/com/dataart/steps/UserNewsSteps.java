@@ -83,7 +83,7 @@ public class UserNewsSteps extends ScenarioSteps {
 	@Step
 	public void user_choose_a_picture(String name){
 		//newsPage.upload("src/test/resources/images2.jpg").to(newsPage.pictureForNews);		
-		System.out.println(newsPage.pictureForNews.isCurrentlyVisible());
+		
 		newsPage.loadImage();
 		//newsPage.pictureForNews.sendKeys(Loader.getResource("images2.jpg").getFile().substring(1).replace('/','\\'));
 		
