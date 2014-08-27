@@ -57,6 +57,7 @@ public class GeneralSteps {
 		pages.getDriver().manage().deleteAllCookies();
 		pages.getDriver().manage().window().maximize();
 		
+		
 	}
 
 	@When("the user enters name: $userName and password: $password and click the 'login' button")
@@ -365,5 +366,40 @@ public class GeneralSteps {
 	@When("user choose a picture to load $name")
 	public void userChooseAPictureToLoad(String name){
 		usernews.user_choose_a_picture(name);
+	}
+	
+	@Then("user should not see published news on the top of news page")
+	public void userShouldNotSeePublishedNewsOnTheTopOfNewsPage(){
+		usernews.user_should_not_see_published_news_on_the_top_of_news_page();
+	}
+	@When("user click on hide button on the news page")
+	public void userClickOnHideButtonOnTheNewsPage(){
+		usernews.user_click_on_hide_button_on_the_news_page();
+	}
+	@When("user click on publish button on the news page")
+	public void userClickOnPublishButtonOnTheNewsPage(){
+		usernews.user_click_on_publish_button_on_the_news_page();
+	}
+	@When("user click preview link")
+	public void userCclickPreviewLink(){
+		usernews.user_click_preview_link();
+		
+	}
+	@Then("user should see a new page with news title")
+	public void userShouldSeeAnewPageWithNewsTitle(){
+		usernews.user_should_see_a_new_page_with_news_title();
+	}
+	@When("user click on the first edit link")
+	public void userClickOnTheFirstEditLink(){
+		usernews.user_click_on_the_first_edit_link();
+	}
+	@When("user click on the news title")
+	public void userClickOnTheNewsTitle(){
+		usernews.user_click_on_the_news_title();
+	}
+	
+	@Then("user should see a title and news body")
+	public void userShouldSeeATitleAndNewsBody(){
+		usernews.user_should_see_a_title_and_news_body();
 	}
 }
