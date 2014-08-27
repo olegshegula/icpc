@@ -77,6 +77,9 @@ public class NewsPage extends PageObject {
 		return newsBody.getText();
 	}
 	public void loadImage(){
+		
+		
+		System.out.println(pictureForNews.isCurrentlyVisible());
 		upload("src/test/resources/images2.jpg").to(pictureForNews);
 	}
 }
