@@ -102,7 +102,7 @@ public class CheckGmail {
 		}
 
 	}
-	
+
 	public static boolean checkConfirmationMail(String email, String password) {
 
 		Properties properties = System.getProperties();
@@ -155,6 +155,45 @@ public class CheckGmail {
 		}
 		return flag;
 
+	}
+
+	/*****************************************************/
+	public static String waitConfirmEmailLink(String email, String password) {
+		String confirmURL = null;
+		for (int i = 1; i <= 30; i++) {
+			confirmURL = checkEMailAndGetConfirmationLink(email, password);
+			if (confirmURL == null) {
+				try {
+					Thread.sleep(3000L);
+					System.out
+							.println("Sleep 2sec. before check e-mail again ...");
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			} else {
+				return confirmURL;
+			}
+		}
+		return null;
+	}
+	/*****************************************************/
+	public static boolean waitBeforeConfirmEmailLinkCheck(String email, String password) {
+		boolean flag = false;
+		for (int i = 1; i <= 30; i++) {
+			flag = checkConfirmationMail(email, password);
+			if (flag == false) {
+				try {
+					Thread.sleep(3000L);
+					System.out
+							.println("Sleep 2sec. before check e-mail again ...");
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			} else {
+				return flag=true;
+			}
+		}
+		return false;
 	}
 
 }
