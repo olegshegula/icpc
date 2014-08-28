@@ -61,6 +61,7 @@ public class UserLoginSteps extends ScenarioSteps {
 	public void click_on_the_swich_language_button_and_choose(String language) {
 
 		loginPage.chooseLanguage(language);
+		waitABit(2000);
 
 	}
 

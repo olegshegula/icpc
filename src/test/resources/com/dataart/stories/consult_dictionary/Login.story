@@ -1,3 +1,10 @@
+Story: Login to icpc.org.ua
+ 
+Narrative: 
+In order to be able to login into icpc.org.ua
+As a user
+I want to be able to login to icpc.org.ua under different roles
+
 Scenario: Login as valid user
 Given the user is on the Login page
 When the user enters name: admin@icpc.org.ua and password: e3r4t5 and click the 'login' button

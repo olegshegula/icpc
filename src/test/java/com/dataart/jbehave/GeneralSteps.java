@@ -351,7 +351,7 @@ public class GeneralSteps {
 	public void userEnterTheTitle(){
 		usernews.user_enter_the_title();
 	}
-	@When("user enter enter the body and click save news")
+	@When("user enter the body and click save news")
 	public void userEnterTheBody(){
 		usernews.user_enter_enter_the_body();
 	}

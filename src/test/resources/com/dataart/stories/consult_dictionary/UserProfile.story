@@ -1,4 +1,4 @@
-Story: Registration to icpc.org.ua
+Story: Manageing user profile for icpc.org.ua
  
 Narrative: 
 In order to be able to manage user profile
