@@ -31,10 +31,10 @@ public class NewsPage extends PageObject {
 	public WebElementFacade publishButton;
 	@FindBy(xpath = "//*[@id='main']//h2/a[1]")
 	public List<WebElement> newsTitles;
-	@FindBy(css = ".btn.btn-danger")
-	public List<WebElement> hideNewsList;
-	@FindBy(xpath = "//button[@data-status='1']")
-	public List<WebElement> publishNewsList;
+	@FindBy(xpath = "//*[@id='main']//button[@data-status='0']")
+	public WebElementFacade hideNewsList;
+	@FindBy(xpath = "//*[@id='main']//button[@data-status='1']")
+	public WebElement publishNewsList;
 	@FindBy(css = ".page-header.clearfix>small>a")
 	public WebElementFacade previewLink;
 

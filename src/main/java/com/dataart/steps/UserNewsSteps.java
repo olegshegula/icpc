@@ -90,11 +90,13 @@ public class UserNewsSteps extends ScenarioSteps {
 	}
 	@Step
 	public void user_click_on_hide_button_on_the_news_page(){
-		newsPage.clickOn(newsPage.hideNewsList.get(0));
+		waitABit(2000);	
+		newsPage.clickOn(newsPage.hideNewsList);
 	}
 	@Step
 	public void user_click_on_publish_button_on_the_news_page(){
-		newsPage.clickOn(newsPage.publishNewsList.get(0));
+		waitABit(2000);
+		newsPage.clickOn(newsPage.publishNewsList);
 	}
 	@Step
 	public void user_click_preview_link(){
