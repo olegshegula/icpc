@@ -39,15 +39,15 @@ public class UserLoginSteps extends ScenarioSteps {
 
 	@Step
 	public void should_see_a_page_title(String message) {
-
-		Assert.assertEquals(loginPage.getPageTitle(), message);
+		loginPage.waitForTitleToAppear(message);
+		Assert.assertEquals(message,loginPage.getPageTitle());
 
 	}
 
 	@Step
 	public void should_see_invalid_flash_message(String message) {
 
-		Assert.assertEquals(loginPage.getInvalidFlashMessage(), message);
+		Assert.assertEquals(message,loginPage.getInvalidFlashMessage());
 
 	}
 
@@ -89,21 +89,24 @@ public class UserLoginSteps extends ScenarioSteps {
 	@Step
 	public void verify_DA_page() {
 		loginPage.goToNewWindow();
-		waitABit(5000);
+		//waitABit(5000);
+		loginPage.waitForTitleToAppear(LoginPage.DA_PAGE_TITLE);
 		Assert.assertEquals(LoginPage.DA_PAGE_TITLE,loginPage.getPageTitle());
 	}
 
 	@Step
 	public void verify_GitHub_page() {
 		loginPage.goToNewWindow();
-		waitABit(5000);
+		//waitABit(5000);
+		loginPage.waitForTitleToAppear(LoginPage.GITHUB_PAGE_TITLE);
 		Assert.assertEquals(LoginPage.GITHUB_PAGE_TITLE,loginPage.getPageTitle());
 	}
 
 	@Step
 	public void verify_Twitter_page() {
 		loginPage.goToNewWindow();
-		waitABit(5000);
+		//waitABit(5000);
+		loginPage.waitForTitleToAppear(LoginPage.TWITTER_PAGE_TITLE);
 		Assert.assertEquals(LoginPage.TWITTER_PAGE_TITLE,loginPage.getPageTitle());
 	}
 

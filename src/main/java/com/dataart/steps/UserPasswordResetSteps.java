@@ -29,10 +29,12 @@ public class UserPasswordResetSteps extends ScenarioSteps{
 
 	@Step
 	public void user_should_see_email_warrning_message(String message){
+		passwordResetPage.waitForAnyTextToAppear(message);
 		Assert.assertEquals(message,passwordResetPage.getEmailErrorMessage());
 	}
 	@Step
 	public void user_should_see_capcha_warrning_message(String message){
+		passwordResetPage.waitForAnyTextToAppear(message);
 		Assert.assertEquals(message,passwordResetPage.getCapchaErrorMessage());
 	}
 	@Step
