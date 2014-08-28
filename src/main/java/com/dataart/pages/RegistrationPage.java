@@ -286,7 +286,7 @@ public class RegistrationPage extends PageObject {
 			e.printStackTrace();
 		}
 		getDriver().get(
-				CheckGmail.checkEMailAndGetConfirmationLink(email, password));
+				CheckGmail.waitConfirmEmailLink(email, password));
 	}
 
 
@@ -303,8 +303,9 @@ public class RegistrationPage extends PageObject {
 		CheckGmail.deleteConfirmationMail(Vars.GMAIL_EMAIL, Vars.GMAIL_PASS);
 		waitABit(2000);
 		$(resendButton).click();
-		waitABit(5000);
-		return CheckGmail.checkConfirmationMail(Vars.GMAIL_EMAIL, Vars.GMAIL_PASS);
+		waitABit(500);
+		//return CheckGmail.checkConfirmationMail(Vars.GMAIL_EMAIL, Vars.GMAIL_PASS);
+		return CheckGmail.waitBeforeConfirmEmailLinkCheck(Vars.GMAIL_EMAIL, Vars.GMAIL_PASS);
 	}
 	public void clickOnBaylorButton(){
 		$(baylorImportButton).click();
