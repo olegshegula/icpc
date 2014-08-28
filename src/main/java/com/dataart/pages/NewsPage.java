@@ -3,7 +3,11 @@ package com.dataart.pages;
 import java.util.List;
 import java.util.Set;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+
+import com.gargoylesoftware.htmlunit.javascript.host.Document;
 
 import net.thucydides.core.annotations.At;
 import net.thucydides.core.annotations.DefaultUrl;
@@ -42,11 +46,11 @@ public class NewsPage extends PageObject {
 	public WebElementFacade pictureForNews;
 	@FindBy(css = ".page-header>h1")
 	public WebElementFacade newsTitle;
-	@FindBy(xpath="//*[@id='main']/div/p[2]")
+	@FindBy(xpath = "//*[@id='main']/div/p[2]")
 	public WebElementFacade newsBody;
-	@FindBy(css=".btn.btn-link")
+	@FindBy(css = ".btn.btn-link")
 	public List<WebElement> editList;
-	@FindBy(xpath ="//h2[@class='news-title']/a[contains(@href,'/news/view')]")
+	@FindBy(xpath = "//h2[@class='news-title']/a[contains(@href,'/news/view')]")
 	public List<WebElement> titleNewsList;
 
 	public void goToNews() {
@@ -72,13 +76,19 @@ public class NewsPage extends PageObject {
 		System.out.println(newsTitle.getText());
 		return newsTitle.getText();
 	}
-	public String getNewsBody(){
+
+	public String getNewsBody() {
 		System.out.println(newsBody.getText());
 		return newsBody.getText();
 	}
-	public void loadImage(){
-		
-		
+
+	public void loadImage() {
+
+		((JavascriptExecutor) getDriver())
+				.executeScript("$r=document.evaluate(\""
+						+ "//div[@class='moxie-shim moxie-shim-html5']"
+						+ "\", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue; $r.style = \"position: absolute; top: 0px; left: 0px; width: 129px; height: 34px; overflow: hidden; z-index: 0;\";");
+
 		System.out.println(pictureForNews.isCurrentlyVisible());
 		upload("src/test/resources/images2.jpg").to(pictureForNews);
 	}

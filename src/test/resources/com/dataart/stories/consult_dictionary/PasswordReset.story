@@ -1,4 +1,4 @@
-Story: Import from icpc.baylor.edu
+Story: Password reset for icpc.baylor.edu
  
 Narrative: 
 In order to be able to reset my account password

@@ -1,4 +1,4 @@
-Story: Import from icpc.baylor.edu
+Story: Post news for icpc.baylor.edu
  
 Narrative: 
 In order to be able to post news for all Ukraine
@@ -10,7 +10,7 @@ Given the user is signed in with admin@icpc.org.ua e3r4t5
 When user go to news menu
 When user click on add news button
 When user enter the title
-When user enter enter the body and click save news
+When user enter the body and click save news
 When user click on publish button
 And user go to news menu
 Then user should see created news on the top of news page
@@ -20,7 +20,7 @@ Given the user is signed in with admin@icpc.org.ua e3r4t5
 When user go to news menu
 When user click on add news button
 When user enter the title
-When user enter enter the body and click save news
+When user enter the body and click save news
 When user click on publish button
 Then user loged out
 Then user should see created news on the top of news page
@@ -30,7 +30,7 @@ Given the user is signed in with admin@icpc.org.ua e3r4t5
 When user go to news menu
 When user click on add news button
 When user enter the title
-When user enter enter the body and click save news
+When user enter the body and click save news
 When user click on publish button
 Then user loged out
 Given the user is signed in with stuone@mailinator.com 123456
@@ -42,7 +42,7 @@ Given the user is signed in with admin@icpc.org.ua e3r4t5
 When user go to news menu
 When user click on add news button
 When user enter the title
-When user enter enter the body and click save news
+When user enter the body and click save news
 Then user loged out
 Then user should not see published news on the top of news page
 
@@ -51,7 +51,7 @@ Given the user is signed in with admin@icpc.org.ua e3r4t5
 When user go to news menu
 When user click on add news button
 When user enter the title
-When user enter enter the body and click save news
+When user enter the body and click save news
 When user click on publish button
 And user go to news menu
 When user click on hide button on the news page
@@ -63,7 +63,7 @@ Given the user is signed in with admin@icpc.org.ua e3r4t5
 When user go to news menu
 When user click on add news button
 When user enter the title
-When user enter enter the body and click save news
+When user enter the body and click save news
 And user go to news menu
 When user click on publish button on the news page
 Then user loged out
@@ -74,7 +74,7 @@ Given the user is signed in with admin@icpc.org.ua e3r4t5
 When user go to news menu
 When user click on add news button
 When user enter the title
-When user enter enter the body and click save news
+When user enter the body and click save news
 When user click preview link
 Then user should see a new page with news title
 
@@ -83,7 +83,7 @@ Given the user is signed in with admin@icpc.org.ua e3r4t5
 When user go to news menu
 When user click on the first edit link
 When user enter the title
-When user enter enter the body and click save news
+When user enter the body and click save news
 When user click on publish button
 And user go to news menu
 Then user should see created news on the top of news page
@@ -93,7 +93,7 @@ Given the user is signed in with admin@icpc.org.ua e3r4t5
 When user go to news menu
 When user click on add news button
 When user enter the title
-When user enter enter the body and click save news
+When user enter the body and click save news
 When user click on publish button
 And user go to news menu
 When user click on the news title
