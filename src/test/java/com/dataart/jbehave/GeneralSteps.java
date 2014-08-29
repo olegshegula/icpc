@@ -8,6 +8,7 @@ import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 
 import org.jbehave.core.annotations.BeforeScenario;
+import org.jbehave.core.annotations.BeforeStories;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
@@ -54,11 +55,12 @@ public class GeneralSteps {
 		user.is_on_the_login_page();
 
 	}
+		
 	@BeforeScenario
 	public void setUp(){
 		pages.getDriver().manage().deleteAllCookies();
 		pages.getDriver().manage().window().maximize();
-		//CheckGmail.deleteConfirmationMail(Vars.GMAIL_EMAIL, Vars.GMAIL_PASS);
+		CheckGmail.deleteConfirmationMail(Vars.GMAIL_EMAIL, Vars.GMAIL_PASS);
 		
 		
 	}
