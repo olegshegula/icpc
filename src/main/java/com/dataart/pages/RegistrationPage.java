@@ -132,7 +132,7 @@ public class RegistrationPage extends PageObject {
 	}
 
 	public int getNumberOfWarrnings() {
-		System.out.println(listOfWarrnings.size());
+		System.out.println("List siz is: "+listOfWarrnings.size());
 		return listOfWarrnings.size();
 	}
 

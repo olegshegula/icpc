@@ -402,4 +402,29 @@ public class GeneralSteps {
 	public void userShouldSeeATitleAndNewsBody(){
 		usernews.user_should_see_a_title_and_news_body();
 	}
+	@When("user go to additional tab $tab")
+	public void userGoToAdditionalTab(String tab){
+		userprofile.user_go_to_additional_tab(tab);
+	}
+	@When("user enter additional info")
+	public void userEnterAdditionalInfo(){
+		userprofile.user_enter_additional_info();
+	}
+	@When("click save button")
+	public void clickSaveButton(){
+		userprofile.click_save_button();
+	}
+	@When("user go to user profile")
+	public void userGoToUserProfile(){
+		user.user_go_to_user_profile();
+	}
+	@Then("user should see filled fields")
+	public void user_should_see_filled_fields(){
+		userprofile.user_should_see_filled_fields();
+	}
+	@Then("user should see @10 warrning messages about blank fields")
+	public void userShouldSeeWarrningMessagesAboutBlankFields(int number) {
+
+		userreg.user_should_see_the_warrning_messages_about_blank_fields(number);
+	}
 }
