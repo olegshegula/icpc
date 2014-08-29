@@ -58,7 +58,7 @@ public class GeneralSteps {
 	public void setUp(){
 		pages.getDriver().manage().deleteAllCookies();
 		pages.getDriver().manage().window().maximize();
-		//CheckGmail.deleteConfirmationMail(Vars.GMAIL_EMAIL, Vars.GMAIL_PASS);
+		CheckGmail.deleteConfirmationMail(Vars.GMAIL_EMAIL, Vars.GMAIL_PASS);
 		
 		
 	}
