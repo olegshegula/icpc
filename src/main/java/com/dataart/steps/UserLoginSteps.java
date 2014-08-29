@@ -127,6 +127,11 @@ public class UserLoginSteps extends ScenarioSteps {
 		enter(userName,password);		
 		click_login_button();
 	}
+	@Step
+    public void	user_go_to_user_profile(){
+		loginPage.clickOn(loginPage.profileLink);
+		waitABit(500);
+	}
 	
 
 }

@@ -57,6 +57,8 @@ public class LoginPage extends PageObject {
 	WebElementFacade mailtoLink;
 	@FindBy(css=".form-group>a")
 	WebElementFacade forgetPasswordLink;
+	@FindBy(css=".navbar-text>a")
+	public WebElementFacade profileLink;
 
 	public final static String DA_PAGE_TITLE = "DataArt - разработка программного обеспечения на заказ. Вакансии программиста, работа для программиста в Петербурге, Воронеже.";
 
