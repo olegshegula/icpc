@@ -23,6 +23,8 @@ import com.dataart.steps.UserNewsSteps;
 import com.dataart.steps.UserPasswordResetSteps;
 import com.dataart.steps.UserProfileSteps;
 import com.dataart.steps.UserRegistrationSteps;
+import com.dataart.utils.CheckGmail;
+import com.dataart.utils.Vars;
 
 public class GeneralSteps {
 
@@ -56,6 +58,7 @@ public class GeneralSteps {
 	public void setUp(){
 		pages.getDriver().manage().deleteAllCookies();
 		pages.getDriver().manage().window().maximize();
+		//CheckGmail.deleteConfirmationMail(Vars.GMAIL_EMAIL, Vars.GMAIL_PASS);
 		
 		
 	}

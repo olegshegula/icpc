@@ -10,4 +10,5 @@ public interface Vars {
 	final String MAININFO_URL ="http://acc.icpc.org.ua/user/me";
 	
 	
+	
 }
