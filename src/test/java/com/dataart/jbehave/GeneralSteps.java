@@ -1,5 +1,7 @@
 package com.dataart.jbehave;
 
+import java.util.concurrent.TimeUnit;
+
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
@@ -60,6 +62,7 @@ public class GeneralSteps {
 	public void setUp(){
 		pages.getDriver().manage().deleteAllCookies();
 		pages.getDriver().manage().window().maximize();
+		pages.getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		CheckGmail.deleteConfirmationMail(Vars.GMAIL_EMAIL, Vars.GMAIL_PASS);
 		
 		
