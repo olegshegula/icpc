@@ -11,10 +11,12 @@ import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 
 import org.jbehave.core.annotations.BeforeScenario;
 import org.jbehave.core.annotations.BeforeStories;
+import org.jbehave.core.annotations.BeforeStory;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 
 import static net.thucydides.core.steps.StepData.withTestDataFrom;
@@ -57,7 +59,6 @@ public class GeneralSteps {
 		user.is_on_the_login_page();
 
 	}
-		
 	@BeforeScenario
 	public void setUp(){
 		pages.getDriver().manage().deleteAllCookies();
@@ -430,9 +431,8 @@ public class GeneralSteps {
 	public void user_should_see_filled_fields(){
 		userprofile.user_should_see_filled_fields();
 	}
-	@Then("user should see @10 warrning messages about blank fields")
-	public void userShouldSeeWarrningMessagesAboutBlankFields(int number) {
-
-		userreg.user_should_see_the_warrning_messages_about_blank_fields(number);
+	@Then("user should see warrning messages about blank fields")
+	public void userShouldSeeWarrningMessagesAboutBlankFields() {
+		userprofile.user_should_see_warrning_messages_about_blank_fields();
 	}
 }

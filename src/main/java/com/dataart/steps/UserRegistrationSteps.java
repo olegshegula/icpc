@@ -60,7 +60,7 @@ public class UserRegistrationSteps extends ScenarioSteps {
 	@Step
 	public void user_should_see_the_warrning_messages_about_blank_fields(
 			int numbers) {
-		Assert.assertEquals(registrationPage.getNumberOfWarrnings(), numbers);
+		Assert.assertEquals(numbers,registrationPage.getNumberOfWarrnings());
 
 	}
 

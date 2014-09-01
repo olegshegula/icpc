@@ -1,6 +1,9 @@
 package com.dataart.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import net.thucydides.core.annotations.At;
 import net.thucydides.core.annotations.DefaultUrl;
@@ -56,6 +59,8 @@ public class ProfilePage extends PageObject{
 	public WebElementFacade course;
 	@FindBy(id="document")
 	public WebElementFacade document;
+	@FindBy(css=".help-block")
+	public List<WebElement> warrningList;
 	
 	
 	public void cleanAdditionalFields(){

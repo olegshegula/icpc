@@ -44,7 +44,7 @@ public class NewsPage extends PageObject {
 
 	@FindBy(xpath = "//input[@type='file']")
 	public WebElementFacade pictureForNews;
-	@FindBy(css = ".page-header>h1")
+	@FindBy(xpath = "//*[@id='main']/div/div[4]/h1")
 	public WebElementFacade newsTitle;
 	@FindBy(xpath = "//*[@id='main']/div/p[2]")
 	public WebElementFacade newsBody;
@@ -73,12 +73,12 @@ public class NewsPage extends PageObject {
 	}
 
 	public String getNewsTitle() {
-		System.out.println(newsTitle.getText());
+		
 		return newsTitle.getText();
 	}
 
 	public String getNewsBody() {
-		System.out.println(newsBody.getText());
+		
 		return newsBody.getText();
 	}
 

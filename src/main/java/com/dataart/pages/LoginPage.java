@@ -42,7 +42,7 @@ public class LoginPage extends PageObject {
 	WebElementFacade pageHeader;
 
 	@FindBy(xpath = "//*[@id='main']//a[contains(@href,'/auth/logout')]")
-	WebElementFacade logOut;
+	public WebElementFacade logOut;
 
 	@FindBy(xpath = "//*[@href='https://github.com/uaoleg/icpc.org.ua']")
 	WebElementFacade githubLink;
@@ -96,10 +96,7 @@ public class LoginPage extends PageObject {
 	public void clickOnRegisterLink() {
 		registerLink.click();
 	}
-
-	public void clickLogOut() {
-		logOut.click();
-	}
+	
 
 	public String getWelcomeMessage() {
 

@@ -112,5 +112,9 @@ public class UserProfileSteps extends ScenarioSteps{
 		Assert.assertEquals(additionalInfo.getCourseField(), profilePage.course.getAttribute("value"));
 		Assert.assertEquals(additionalInfo.getSerialField(), profilePage.document.getAttribute("value"));
 	}
+	@Step
+	public void user_should_see_warrning_messages_about_blank_fields(){
+		Assert.assertTrue(profilePage.warrningList.size()>0);
+	}
 
 }
