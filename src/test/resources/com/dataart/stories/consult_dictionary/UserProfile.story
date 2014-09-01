@@ -57,4 +57,4 @@ Given the user is signed in with stuone@mailinator.com 123456
 When user go to user profile
 When user go to additional tab /en
 And click save button
-Then user should see 10 warrning messages about blank fields
+Then user should see warrning messages about blank fields

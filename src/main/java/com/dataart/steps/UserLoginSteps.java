@@ -33,8 +33,8 @@ public class UserLoginSteps extends ScenarioSteps {
 
 	@Step
 	public void click_logout_link() {
-
-		loginPage.clickLogOut();
+		waitABit(500);
+		loginPage.clickOn(loginPage.logOut);
 	}
 
 	@Step

@@ -43,7 +43,7 @@ public class UserNewsSteps extends ScenarioSteps {
 
 	@Step
 	public void user_enter_enter_the_body() {
-		news.setBody(" As a substitute to the multiple applications that have been designed to manage either one or two steps of the testing process, QA teams are now dependent on the various test management tools. "
+		news.setBody("As a substitute to the multiple applications that have been designed to manage either one or two steps of the testing process, QA teams are now dependent on the various test management tools. "
 				+ (int) (Math.random() * 10000 + 1));	
 
 		WebElement frame = getDriver().findElement(By.
@@ -121,6 +121,10 @@ public class UserNewsSteps extends ScenarioSteps {
 	}
 	@Step
 	public void user_should_see_a_title_and_news_body(){
+	
+	System.out.println(news.getTitle()+"=========="+newsPage.getNewsTitle());	
+	System.out.println(news.getBody()+"=========="+newsPage.getNewsBody());
+	
 	Assert.assertEquals(news.getTitle(),newsPage.getNewsTitle());
 	Assert.assertEquals(news.getBody(),newsPage.getNewsBody());
 	}
