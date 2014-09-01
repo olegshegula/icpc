@@ -41,7 +41,7 @@ public class LoginPage extends PageObject {
 	@FindBy(xpath = "//*[@id='main']//td[2]")
 	WebElementFacade pageHeader;
 
-	@FindBy(xpath = "//*[@id='main']//a[text()='Logout']")
+	@FindBy(xpath = "//*[@id='main']//a[contains(@href,'/auth/logout')]")
 	WebElementFacade logOut;
 
 	@FindBy(xpath = "//*[@href='https://github.com/uaoleg/icpc.org.ua']")
