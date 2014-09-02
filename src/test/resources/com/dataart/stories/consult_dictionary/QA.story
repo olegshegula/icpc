@@ -43,3 +43,20 @@ When user enter title field
 When user enter description field
 When user click save button
 Then user should see a new tag with name and description
+
+Scenario: As admin i want to be able to see warrning when i cteate Tag without title and description 
+Given the user is signed in with admin@icpc.org.ua e3r4t5
+Given the user is on the QA page
+When user click on manage tabs button
+When user click on create tab button
+When user click save button
+Then user should see warrning message Name cannot be blank.
+
+Scenario: As admin i want to be able to see warrning when i cteate Tag without title and with description 
+Given the user is signed in with admin@icpc.org.ua e3r4t5
+Given the user is on the QA page
+When user click on manage tabs button
+When user click on create tab button
+When user enter description field
+When user click save button
+Then user should see warrning message Name cannot be blank.
