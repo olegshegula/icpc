@@ -1,29 +1,26 @@
 package com.dataart.pages;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
-import java.util.List;
+import java.io.InputStreamReader;
+import static java.lang.Thread.sleep;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
 import net.thucydides.core.annotations.At;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.protocol.BasicHttpContext;
-import org.apache.http.protocol.HttpContext;
+import org.apache.commons.validator.UrlValidator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
-
-import static java.lang.Thread.sleep;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 @DefaultUrl("http://acc.icpc.org.ua/auth/login")
 @At("http://acc.icpc.org.ua/auth/login")
@@ -91,6 +88,12 @@ public class LoginPage extends PageObject {
 	
 	@FindBy(xpath="//a[@class='document-title']")
 	public static WebElement docsTitlesGeneralXpath;
+        
+        @FindBy (xpath="html/body/div[2]/div/div[5]/div[2]/a[1]")
+        public static WebElement firstDocLink;
+        
+        @FindBy (xpath="//*[@href='/qa/ask']")
+        public static WebElement askQuestionBtn;
 	
 
 	public final static String DA_PAGE_TITLE = "DataArt - разработка программного обеспечения на заказ. Вакансии программиста, работа для программиста в Петербурге, Воронеже.";
@@ -114,12 +117,16 @@ public class LoginPage extends PageObject {
 	public final static String RESULTS_PAGE_TITLE = "Results - ICPC";
 	
 	public final static String QA_PAGE_TITLE = "Qa - ICPC";
+        
+        public final static String LOGIN_PAGE_TITLE = "Auth - ICPC";
 	
 	public final static String REGULATIONS_DOCS_PAGE_TITLE = "Docs - ICPC";
 	
 	public final static String GUIDANCE_DOCS_PAGE_TITLE = "Guidance Docs - ICPC";
 	
 	public final static String DOCS_TITLE_GENERAL_XPATH = "//a[@class='document-title']";
+        
+        public final static String GUIDANCE_DOCS_MENU_XPATH = "//*[@href='/docs/guidance'][contains(text(), 'Guidance')]";
 
 	public void enterLoginAndPassword(String userName, String password) {
 
@@ -153,6 +160,10 @@ public class LoginPage extends PageObject {
 	public void clickLogOut() {
 		logOut.click();
 	}
+        
+        public void clickAskQuestionBtn(){
+            askQuestionBtn.click();
+        }
 
 	public String getWelcomeMessage() {
 
@@ -175,6 +186,8 @@ public class LoginPage extends PageObject {
 			}
 		}
 	}
+        
+        
 
 	public String getInvalidFlashMessage() {
 
@@ -233,6 +246,10 @@ public class LoginPage extends PageObject {
 	public void qaLinkClick(){
 		qaLink.click();
 	}
+        
+        public void firstDocLinkClick(){
+		firstDocLink.click();
+	}
 	
 	public void chooseDocs(WebElement element) {
 
@@ -244,32 +261,43 @@ public class LoginPage extends PageObject {
 	}
 	//костыль для проверки тестов на необходимость wait
 	public void driverWait(){
-		  try{sleep (2000);} catch (InterruptedException e){};
+		 WebDriverWait waiting = new WebDriverWait(getDriver(), 30, 1000);
+                 waiting.until(ExpectedConditions.presenceOfElementLocated(By.xpath(LoginPage.GUIDANCE_DOCS_MENU_XPATH)));
+
 		 }
 	
-	//getting all elements on the page and getting href of the pre-last one
-	public String getDocumentHrefLink(){
-		List<WebElement> docs = getDriver().findElements(By.xpath(DOCS_TITLE_GENERAL_XPATH));
-		int count = docs.size();
-		return docs.get(count-1).getAttribute("href");	
-		}
 	
-	public boolean isResourceAvailableByUrl(String resourceUrl) {
-        HttpClient httpClient = new DefaultHttpClient();
-        HttpContext localContext = new BasicHttpContext();
-        // resourceUrl - is url which leads to image
-        HttpGet httpGet = new HttpGet(resourceUrl);
-
-        try {
-            HttpResponse httpResponse = httpClient.execute(httpGet, localContext);
-            return httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK;
-        } catch (IOException e) {
-            return false;
-        }
-	}
-    
-
 	
+	public static int isResourceAvailableByUrl(WebElement el) throws MalformedURLException, IOException {
+                String USER_AGENT = "Mozilla/5.0";
+                URL u = new URL(el.getAttribute("href"));
+                System.out.println(u);
+                HttpURLConnection huc = (HttpURLConnection)  u.openConnection(); 
+                huc.setRequestMethod("GET"); 
+                huc.setRequestProperty("User-Agent", USER_AGENT);
+                huc.setRequestProperty("Accept-Language", "en-US,en;q=0.5");      
+                huc.setDoOutput(true);
+                DataOutputStream wr = new DataOutputStream(huc.getOutputStream());       
+                wr.flush();
+                wr.close();
+
+                int responseCode = huc.getResponseCode();
+                System.out.println("\nSending 'GET' request to URL : " + u);
+                // System.out.println("Post parameters : " + urlParameters);
+                System.out.println("Response Code : " + responseCode);
+                return responseCode; 
+         
 }
+    
+          
+            
+            
+            
+            
+
+}
+    
+	
+
 
 

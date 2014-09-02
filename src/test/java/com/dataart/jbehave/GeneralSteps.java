@@ -2,10 +2,13 @@ package com.dataart.jbehave;
 
 import com.dataart.steps.UserLoginSteps;
 import com.dataart.steps.UserRegistrationSteps;
+import java.io.IOException;
 import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
+
+
 
 public class GeneralSteps {
 
@@ -240,10 +243,27 @@ public class GeneralSteps {
 	}
 	
 	@Then("user tries to download doc")
-	public void verifyIfDocIsDownloadable(){
+	public void verifyIfDocIsDownloadable() throws IOException{
 		user.verify_if_Doc_is_Downloadable();
 	}
 	
+        @Then("user clicks on the top document's title")
+        public void clickOnTheFirstDocLink(){
+            user.user_clicks_on_first_doc_link();
+        }
+        
+        @Then("user is able to download that document")
+        public void isDocAvaibleToDownload() throws IOException{
+            user.verify_if_Doc_is_Downloadable();
+        }
 	
-
+        @Then("user clicks on the Ask Question button")
+        public void userClicksonAskQuestionBtn(){
+            user.user_clicks_on_Ask_question_button();
+        }
+        
+        @Then("user is sent to Login page")
+        public void userisonLoginPage(){
+            user.verify_Login_page();
+        }
 }

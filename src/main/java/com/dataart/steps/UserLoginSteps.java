@@ -3,6 +3,7 @@ package com.dataart.steps;
 import org.junit.Assert;
 
 import com.dataart.pages.LoginPage;
+import java.io.IOException;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -207,10 +208,29 @@ public class UserLoginSteps extends ScenarioSteps {
 		loginPage.driverWaitForTitle();
 		Assert.assertEquals(loginPage.getPageTitle(), LoginPage.GUIDANCE_DOCS_PAGE_TITLE);
 	}
+        
+        @Step
+        public void user_clicks_on_first_doc_link(){
+            loginPage.firstDocLinkClick();
+        }
+        
+        
 	
 	@Step
-	public void verify_if_Doc_is_Downloadable(){
-		Assert.assertTrue(loginPage.isResourceAvailableByUrl(loginPage.getDocumentHrefLink()));
+	public void verify_if_Doc_is_Downloadable() throws IOException{
+            Assert.assertEquals(200, loginPage.isResourceAvailableByUrl(LoginPage.firstDocLink));
+		//loginPage.isResourceAvailableByUrl(LoginPage.firstDocLink);
 	}
+        
+        @Step
+        public void user_clicks_on_Ask_question_button(){
+            loginPage.clickAskQuestionBtn();
+        }
+        
+        @Step
+        public void verify_Login_page(){
+            loginPage.driverWaitForTitle();
+            Assert.assertEquals(loginPage.getPageTitle(), LoginPage.LOGIN_PAGE_TITLE);
+        }
 
 }
