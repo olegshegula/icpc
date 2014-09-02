@@ -481,6 +481,10 @@ public class GeneralSteps {
 	public void userShouldSeeANewTagWithName(){
 		userqa.user_should_see_a_new_tag_with_name();
 	}
+	@Then("user should see warrning message $message")
+	public void userShouldSeeWarrning(String message){
+		
+	}
 	
 	
 }

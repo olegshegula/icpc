@@ -58,8 +58,7 @@ public class UserQASteps extends ScenarioSteps {
 	}
 	@Step
 	public void user_click_on_delete_button(){
-	 double pre = Table.getRowsNumber(qaPage.tagsTable);
-	 
+	 double pre = Table.getRowsNumber(qaPage.tagsTable);	 
 		qaPage.clickOn(qaPage.deleteButtonList.get(0));
 		waitABit(200);
 		qaPage.clickOn(qaPage.confirmButton);
@@ -79,6 +78,10 @@ public class UserQASteps extends ScenarioSteps {
 		
 		Assert.assertTrue(Table.isTagNameExistInTable(qaPage.tagsTable, newtag.getTitle()));
 				
+	}
+	@Step
+	public void user_should_see_warrning(String message){
+		Assert.assertEquals(message,qaPage.warrningMessage.getText());
 	}
 	
 	
