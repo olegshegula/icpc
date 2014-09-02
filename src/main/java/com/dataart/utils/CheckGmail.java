@@ -164,9 +164,9 @@ public class CheckGmail {
 			confirmURL = checkEMailAndGetConfirmationLink(email, password);
 			if (confirmURL == null) {
 				try {
-					Thread.sleep(10000L);
+					Thread.sleep(30000L);
 					System.out
-							.println("Sleep 10sec. before check e-mail again ...");
+							.println("Sleep 30sec. before check e-mail again ...");
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -183,9 +183,9 @@ public class CheckGmail {
 			flag = checkConfirmationMail(email, password);
 			if (flag == false) {
 				try {
-					Thread.sleep(10000L);
+					Thread.sleep(30000L);
 					System.out
-							.println("Sleep 10sec. before check e-mail again ...");
+							.println("Sleep 30sec. before check e-mail again ...");
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

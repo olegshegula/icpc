@@ -8,7 +8,11 @@ public interface Vars {
 	final String BAYLOR_HEADER = "Import from icpc.baylor.edu";
 	final String BAYLOR_EMAIL ="111@mailinator.com";
 	final String MAININFO_URL ="http://acc.icpc.org.ua/user/me";
-	
+	final String QA_TITLE="Qatags - ICPC";
+	final String QA_CREATE_TAB_TITLE="Manage Qatags - ICPC";
+	final String NOT_UNIQUE_MESSAGE="Name is not unique in DB.";
+	final String NOT_BLANK_MESSAGE="Name cannot be blank.";
+			
 	
 	
 }
