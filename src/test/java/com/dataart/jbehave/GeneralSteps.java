@@ -27,6 +27,7 @@ import com.dataart.steps.UserLoginSteps;
 import com.dataart.steps.UserNewsSteps;
 import com.dataart.steps.UserPasswordResetSteps;
 import com.dataart.steps.UserProfileSteps;
+import com.dataart.steps.UserQASteps;
 import com.dataart.steps.UserRegistrationSteps;
 import com.dataart.utils.CheckGmail;
 import com.dataart.utils.Vars;
@@ -53,6 +54,8 @@ public class GeneralSteps {
 	
 	@Steps
 	UserNewsSteps usernews;
+	@Steps
+	UserQASteps userqa;
 
 	@Given("the user is on the Login page")
 	public void givenTheUserIsOnTheLoginPage() {
@@ -435,4 +438,50 @@ public class GeneralSteps {
 	public void userShouldSeeWarrningMessagesAboutBlankFields() {
 		userprofile.user_should_see_warrning_messages_about_blank_fields();
 	}
+	@Given("the user is on the QA page")
+	public void givenTheUserIsOnTheQaPage() {
+		userqa.is_on_the_qa_page();
+
+	}
+	@When("user click on manage tabs button")
+	public void userClickOnManageTabsButton(){
+		userqa.user_click_on_manage_tabs_button();
+	}
+	@When("user click on create tab button")
+	public void userClickOnCreateTabButton(){
+		userqa.user_click_on_create_tab_button();
+	}
+	@When("user enter title field")
+	public void userEnterTitleField(){
+		userqa.user_enter_title_field();
+	}
+	@When ("user enter description field")
+	public void userEnterDescriptionField(){
+		userqa.user_enter_description_field();
+	}
+	@When("user click save button")
+	public void userClickSaveButton(){
+		userqa.user_click_save_button();
+	
+	}
+	@Then("user should see a new tag with name and description")
+	public void userShouldSeeANewTagWithNameAndDescription(){
+		userqa.user_should_see_a_new_tag_with_name_and_description();
+	}
+	@Then("user click on delete button and should see that tag is deleted")
+	public void userClickOnDeleteButton(){
+		userqa.user_click_on_delete_button();
+	}
+	@When("user click edit button")
+	public void userClickEditButton(){
+		userqa.user_click_edit_button();
+	}
+	
+	@Then("user should see a new tag with name")
+	public void userShouldSeeANewTagWithName(){
+		userqa.user_should_see_a_new_tag_with_name();
+	}
+	
+	
 }
+
