@@ -84,6 +84,9 @@ public class UserQASteps extends ScenarioSteps {
 		Assert.assertEquals(message,qaPage.warrningMessage.getText());
 	}
 	
-	
+	@Step
+	public void user_clicks_on_Ask_question_button(){
+		qaPage.askQuestionButton.click();
+	}
 	
 }

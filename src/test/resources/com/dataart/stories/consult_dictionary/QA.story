@@ -60,3 +60,8 @@ When user click on create tab button
 When user enter description field
 When user click save button
 Then user should see warrning message Name cannot be blank.
+
+Scenario: As Unregistered user i should be able to be sent on Login page when click on Ask question button 
+Given the user is on the QA page
+When user clicks on Ask question button
+Then user should be sent to Login page

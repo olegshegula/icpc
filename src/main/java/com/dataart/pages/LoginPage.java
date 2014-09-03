@@ -67,6 +67,8 @@ public class LoginPage extends PageObject {
 	public static final String TWITTER_PAGE_TITLE = "icpc.org.ua (IcpcOrgUa) on Twitter";
 
 	public static final String MAILTO_LINK_TEXT = "info@icpc.org.ua";
+        
+        public final static String LOGIN_PAGE_TITLE = "Auth - ICPC";
 
 	public void enterLoginAndPassword(String userName, String password) {
 
