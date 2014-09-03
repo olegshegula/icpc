@@ -12,6 +12,7 @@ public interface Vars {
 	final String QA_CREATE_TAB_TITLE="Manage Qatags - ICPC";
 	final String NOT_UNIQUE_MESSAGE="Name is not unique in DB.";
 	final String NOT_BLANK_MESSAGE="Name cannot be blank.";
+	final String ASK_QA_TITLE="Ask Qa - ICPC";
 			
 	
 	

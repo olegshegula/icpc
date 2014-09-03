@@ -485,7 +485,41 @@ public class GeneralSteps {
 	public void userShouldSeeWarrning(String message){
 		
 	}
-	
-	
+	@When("user click on ask question button")
+	public void userClickOnAskQuestionButton(){
+		userqa.user_click_on_ask_question_button();
+	}
+	@When("user enter title")
+	public void userEnterTitle(){
+		userqa.user_enter_the_title();
+	}
+	@When("user enter body")
+	public void userEnterBody(){
+		userqa.user_enter_body();
+	}
+	@When("user choose teg $registration")
+	public void userChooseTegRegistration(String tag){
+		userqa.user_choose_teg_registration(tag);
+	}
+	@When("user click save question button")
+	public void userClickSaveQuestionButton(){
+		userqa.user_click_save_question_button();
+	}
+	@Then("user should see created question with correct title,body,tag")
+	public void userShouldSeeCreatedQuestion(){
+		userqa.should_see_created_question();
+	}
+	@Then("user should see $number warrning messages")
+	public void userShouldSeeTheWarrningMessages(int number){
+		userqa.user_should_see_the_warrning_messages(number);
+	}
+	@When("user click post answer button")
+	public void userClickPostAnswerButton(){
+		userqa.user_click_post_answer_button();
+	}
+	@Then("user should see posted answer")
+	public void userShouldSeePostedAnswer(){
+		userqa.user_should_see_posted_answer();
+	}
 }
 

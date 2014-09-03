@@ -60,3 +60,49 @@ When user click on create tab button
 When user enter description field
 When user click save button
 Then user should see warrning message Name cannot be blank.
+
+Scenario: As student i want to be able to ask a new question form Q&A menu
+Given the user is signed in with stuone@mailinator.com 123456
+Given the user is on the QA page
+When user click on ask question button
+When user enter title
+When user enter body
+When user choose teg registration
+When user click save question button
+Then user should see created question with correct title,body,tag
+
+Scenario: As student i want to be able to see warrning messages whan i creat question on Q&A menu and all filds are empty
+Given the user is signed in with stuone@mailinator.com 123456
+Given the user is on the QA page
+When user click on ask question button
+When user click save question button
+Then user should see 3 warrning messages
+
+Scenario: As student i want to be able to see warrning messages whan i creat question on Q&A menu and enter only title
+Given the user is signed in with stuone@mailinator.com 123456
+Given the user is on the QA page
+When user click on ask question button
+When user enter title
+When user click save question button
+Then user should see 2 warrning messages
+
+Scenario: As student i want to be able to see warrning messages whan i creat question on Q&A menu and enter only title and body
+Given the user is signed in with stuone@mailinator.com 123456
+Given the user is on the QA page
+When user click on ask question button
+When user enter title
+When user enter body
+When user click save question button
+Then user should see 1 warrning messages
+
+Scenario: As student i want to be able to ask question on Q&A page and add post answers to it
+Given the user is signed in with stuone@mailinator.com 123456
+Given the user is on the QA page
+When user click on ask question button
+When user enter title
+When user enter body
+When user choose teg registration
+When user click save question button
+When user enter body
+When user click post answer button
+Then user should see posted answer
