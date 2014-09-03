@@ -33,5 +33,27 @@ public class QaPage extends PageObject{
 	public List<WebElement> deleteButtonList;
 	@FindBy(xpath="//*[@id='main']//a[@class='btn btn-primary']")
 	public List<WebElement> editButtonList;
+	@FindBy(css=".btn.btn-success.btn-lg.pull-right")
+	public WebElementFacade askQuestionButton;
+	@FindBy(xpath = "//input[@name='title']")
+	public WebElementFacade titleField;
+	@FindBy(xpath="//*[@id='s2id_autogen1']/ul")
+	public WebElementFacade chooseTagField;
+	@FindBy(css=".btn.btn-primary.btn-lg.question-save")
+	public WebElementFacade saveQuestionButton;
+	@FindBy(xpath="//*[@id='main']/div/h2")
+	public WebElementFacade titleHeader;
+	@FindBy(css=".container>div>p")
+	public WebElementFacade bodyHeader;
+	@FindBy(css=".help-block")
+	public List<WebElementFacade> warrningMessages;
+	@FindBy(css=".btn.btn-primary.answer-create")
+	public WebElementFacade postAnswer;
+	@FindBy(css=".qa-answer-count")
+	public WebElementFacade answerNumber;
+	@FindBy(css=".qa-answer>div>p")
+	public List<WebElement> answersList;
+	@FindBy(css=".container>div>h2>a")
+	public List<WebElement>  listOfQuestions;
 	
 }
