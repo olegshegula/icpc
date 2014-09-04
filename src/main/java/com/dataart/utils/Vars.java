@@ -13,7 +13,7 @@ public interface Vars {
 	final String NOT_UNIQUE_MESSAGE="Name is not unique in DB.";
 	final String NOT_BLANK_MESSAGE="Name cannot be blank.";
 	final String ASK_QA_TITLE="Ask Qa - ICPC";
-			
+	final String BAYLOR_SITE="http://acc.icpc.org.ua/user/baylor";		
 	
 	
 }

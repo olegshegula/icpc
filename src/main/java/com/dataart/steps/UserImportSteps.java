@@ -2,8 +2,11 @@ package com.dataart.steps;
 
 import junit.framework.Assert;
 
+import com.dataart.model.User;
 import com.dataart.pages.ImportPage;
 import com.dataart.utils.Vars;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.WebResource;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
@@ -34,5 +37,12 @@ public class UserImportSteps extends ScenarioSteps{
 	@Step
 	public void user_should_see_error_message_on_popup(String message){
 		Assert.assertEquals(message,importPage.getErrorMessage());
+	}
+	@Step
+	public void sending_request_to(){
+		Client client =Client.create();
+		WebResource webResource = client.resource(Vars.BAYLOR_SITE);
+		User u = webResource.get(User.class);
+		System.out.println(u);
 	}
 }
