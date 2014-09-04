@@ -55,5 +55,7 @@ public class QaPage extends PageObject{
 	public List<WebElement> answersList;
 	@FindBy(css=".container>div>h2>a")
 	public List<WebElement>  listOfQuestions;
+	@FindBy(css=".container>h2>small>a")
+	public WebElementFacade editLink;
 	
 }
