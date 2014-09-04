@@ -61,6 +61,11 @@ When user enter description field
 When user click save button
 Then user should see warrning message Name cannot be blank.
 
+Scenario: As Unregistered user i should be able to be sent on Login page when click on Ask question button 
+Given the user is on the QA page
+When user click on ask question button
+Then user should be sent to Login page
+
 Scenario: As student i want to be able to ask a new question form Q&A menu
 Given the user is signed in with stuone@mailinator.com 123456
 Given the user is on the QA page
@@ -117,3 +122,4 @@ When user enter body
 When user choose teg news
 When user click save question button
 Then user should see created question with correct title,body,tag
+

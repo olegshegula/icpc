@@ -156,6 +156,7 @@ public class UserQASteps extends ScenarioSteps {
 	@Step
 	public void user_click_Edit_link_to_edit_question(){
 		qaPage.clickOn(qaPage.editLink);
+
 	}
 	
 }
