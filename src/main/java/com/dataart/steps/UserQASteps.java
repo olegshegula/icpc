@@ -95,6 +95,12 @@ public class UserQASteps extends ScenarioSteps {
 		qaPage.clickOn(qaPage.askQuestionButton);
 		qaPage.waitForTitleToAppear(Vars.ASK_QA_TITLE);
 	}
+        @Step
+	public void user_click_on_ask_question_button_nowait(){
+		qaPage.clickOn(qaPage.askQuestionButton);
+		
+	}
+        
 	@Step
 	public void user_enter_the_title() {
 		news.setTitle("This is a new question "+ (int) (Math.random() * 10000 + 1));
