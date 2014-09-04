@@ -526,12 +526,12 @@ public class GeneralSteps {
         
         @Then("user should be sent to Login page")
         public void userisonLoginPage(){
-            user.should_see_a_page_title(LoginPage.LOGIN_PAGE_TITLE);
+            user.should_see_a_page_title(Vars.LOGIN_PAGE_TITLE);
         }
         
 	@When("user click on ask question button")
 	public void userClickOnAskQuestionButton(){
-		userqa.user_click_on_ask_question_button();
+		userqa.user_click_on_ask_question_button_nowait();
 	}
 	@When("user enter title")
 	public void userEnterTitle(){
