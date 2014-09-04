@@ -1,27 +1,7 @@
 package com.dataart.jbehave;
 
-import java.util.concurrent.TimeUnit;
-
-import net.thucydides.core.annotations.ManagedPages;
-import net.thucydides.core.annotations.Steps;
-import net.thucydides.core.pages.Pages;
-import net.thucydides.core.steps.StepFactory;
-import net.thucydides.junit.annotations.UseTestDataFrom;
-import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
-
-import org.jbehave.core.annotations.BeforeScenario;
-import org.jbehave.core.annotations.BeforeStories;
-import org.jbehave.core.annotations.BeforeStory;
-import org.jbehave.core.annotations.Given;
-import org.jbehave.core.annotations.Then;
-import org.jbehave.core.annotations.When;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.runner.RunWith;
-
-import static net.thucydides.core.steps.StepData.withTestDataFrom;
-
-import com.dataart.model.News;
+import com.dataart.pages.LoginPage;
+import com.dataart.steps.UserDocsSteps;
 import com.dataart.steps.UserImportSteps;
 import com.dataart.steps.UserLoginSteps;
 import com.dataart.steps.UserNewsSteps;
@@ -31,6 +11,23 @@ import com.dataart.steps.UserQASteps;
 import com.dataart.steps.UserRegistrationSteps;
 import com.dataart.utils.CheckGmail;
 import com.dataart.utils.Vars;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.util.concurrent.TimeUnit;
+import junit.framework.Assert;
+import net.thucydides.core.annotations.ManagedPages;
+import net.thucydides.core.annotations.Steps;
+import net.thucydides.core.pages.Pages;
+import static net.thucydides.core.steps.StepData.withTestDataFrom;
+import net.thucydides.core.steps.StepFactory;
+import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
+import org.jbehave.core.annotations.BeforeScenario;
+import org.jbehave.core.annotations.Given;
+import org.jbehave.core.annotations.Then;
+import org.jbehave.core.annotations.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
+
 
 public class GeneralSteps {
 
@@ -54,8 +51,12 @@ public class GeneralSteps {
 	
 	@Steps
 	UserNewsSteps usernews;
+        
 	@Steps
 	UserQASteps userqa;
+        
+        @Steps
+        UserDocsSteps userdoc;
 
 	@Given("the user is on the Login page")
 	public void givenTheUserIsOnTheLoginPage() {
@@ -64,6 +65,13 @@ public class GeneralSteps {
 	}
 	@BeforeScenario
 	public void setUp(){
+//            Actions builder = new Actions(getDriver());
+//		getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//		builder.moveToElement(getDriver().findElement(By.xpath("//li[@class='dropdown dropup language-select']"))).build().perform();
+//		builder.moveToElement(
+//				getDriver()
+//						.findElement(
+//								By.xpath("//*[contains(@class, 'dropdown dropup language-select')]//*[@data-lang='en']"))).click().perform();
 		pages.getDriver().manage().deleteAllCookies();
 		pages.getDriver().manage().window().maximize();
 		pages.getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -485,6 +493,42 @@ public class GeneralSteps {
 	public void userShouldSeeWarrning(String message){
 		
 	}
+        
+        @When("user clicks on the Docs link and chooses Regulations item")
+	public void userClicksontheDocsLinkandChoosesRegulationItem(){
+		userdoc.click_Docs_and_choose_Regulations();
+	}
+	
+        @Then("user is on the Regulations Docs page")
+	public void userisontheRegulationsDocsPage(){
+		userdoc.is_on_the_Regulation_Page();
+	}
+        
+        @When("user clicks on the Docs link and chooses Guidance item")
+	public void userClicksontheDocsLinkandChoosesGuidanceItem(){
+		userdoc.click_Docs_and_choose_Guidance();
+	}
+        
+	@Then("user is on the Guidance Docs page")
+	public void userisontheGuidanceDocsPage(){
+		userdoc.is_on_the_Guidance_Page();
+	}
+        
+        @Then("user clicks on the top document's title")
+	public void userClicksontheTopDocumentLink(){
+		userdoc.first_doc_link_click();
+	}
+        
+        @Then("user is able to download that document")
+	public void userisAbletoDownloadDoc()throws MalformedURLException, IOException{
+		Assert.assertEquals(200, userdoc.is_doc_avaible_by_URL());
+	}
+        
+        @Then("user should be sent to Login page")
+        public void userisonLoginPage(){
+            user.should_see_a_page_title(LoginPage.LOGIN_PAGE_TITLE);
+        }
+        
 	@When("user click on ask question button")
 	public void userClickOnAskQuestionButton(){
 		userqa.user_click_on_ask_question_button();

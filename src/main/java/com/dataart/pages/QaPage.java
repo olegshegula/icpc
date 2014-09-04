@@ -33,8 +33,9 @@ public class QaPage extends PageObject{
 	public List<WebElement> deleteButtonList;
 	@FindBy(xpath="//*[@id='main']//a[@class='btn btn-primary']")
 	public List<WebElement> editButtonList;
-	@FindBy(css=".btn.btn-success.btn-lg.pull-right")
-	public WebElementFacade askQuestionButton;
+        @FindBy (xpath="//a[@href='/qa/ask']")
+        public WebElement askQuestionButton;
+        
 	@FindBy(xpath = "//input[@name='title']")
 	public WebElementFacade titleField;
 	@FindBy(xpath="//*[@id='s2id_autogen1']/ul")
