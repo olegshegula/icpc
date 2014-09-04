@@ -573,5 +573,9 @@ public class GeneralSteps {
 	public void userClickEditLinkToEditQuestion(){
 		userqa.user_click_Edit_link_to_edit_question();
 	}
+	@Given("Sending request to")
+	public void sendingRequestTo(){
+		userimport.sending_request_to();
+	}
 }
 
