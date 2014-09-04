@@ -149,6 +149,13 @@ public class UserQASteps extends ScenarioSteps {
 		Assert.assertEquals(news.getBody(), qaPage.answersList.get(0).getText());
 	}
 	
-	
+	@Step
+	public void user_click_on_the_first_question(){
+		qaPage.clickOn(qaPage.listOfQuestions.get(0));
+	}
+	@Step
+	public void user_click_Edit_link_to_edit_question(){
+		qaPage.clickOn(qaPage.editLink);
+	}
 	
 }

@@ -521,5 +521,13 @@ public class GeneralSteps {
 	public void userShouldSeePostedAnswer(){
 		userqa.user_should_see_posted_answer();
 	}
+	@When("user click on the first question")
+	public void userClickOnTheFirstQuestion(){
+		userqa.user_click_on_the_first_question();
+	}
+	@When("user click Edit link to edit question")
+	public void userClickEditLinkToEditQuestion(){
+		userqa.user_click_Edit_link_to_edit_question();
+	}
 }
 

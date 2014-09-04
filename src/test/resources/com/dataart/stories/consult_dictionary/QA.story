@@ -106,3 +106,14 @@ When user click save question button
 When user enter body
 When user click post answer button
 Then user should see posted answer
+
+Scenario: As student i want to be able to edit first question from Q&A page
+Given the user is signed in with stuone@mailinator.com 123456
+Given the user is on the QA page
+When user click on the first question
+When user click Edit link to edit question
+When user enter title
+When user enter body
+When user choose teg news
+When user click save question button
+Then user should see created question with correct title,body,tag
