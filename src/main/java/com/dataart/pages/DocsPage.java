@@ -30,6 +30,25 @@ public class DocsPage extends PageObject {
         @FindBy(xpath="//li[contains(@class,'dropdown')]/a[@class='dropdown-toggle']")
 	public WebElement docsLink;
         
+        @FindBy(xpath="//*[@href='/staff/docs/create/type/regulations']")
+	public WebElement uploadDocButton;
+        
+        @FindBy(xpath="//input[@name='title']")
+	public WebElement titleInputField;
+        
+        @FindBy(xpath="//textarea[@name='desc']")
+	public WebElement descriptionInputField;
+        
+        @FindBy(xpath="//select[@name='type']")
+	public WebElement docTypeDropdown;
+        
+        @FindBy(xpath="//button[@id='pickfiles']")
+	public WebElement chooseFileButton;
+        
+        @FindBy(xpath="//button[@type='submit']")
+	public WebElement saveDocumentButton;
+        
+        
         public final static String REGULATIONS_DOCS_PAGE_TITLE = "Docs - ICPC";
 	
 	public final static String GUIDANCE_DOCS_PAGE_TITLE = "Guidance Docs - ICPC";
@@ -37,6 +56,12 @@ public class DocsPage extends PageObject {
 	public final static String DOCS_TITLE_GENERAL_XPATH = "//a[@class='document-title']";
         
         public final static String GUIDANCE_DOCS_MENU_XPATH = "//*[@href='/docs/guidance'][contains(text(), 'Guidance')]";
+        
+        public final static String SAVE_DOCUMENT_BUTTON_XPATH = "//button[@type='submit']";
+        
+        public final static String FIRST_DOCUMENT_LINK_XPATH = "html/body/div[2]/div/div[5]/div[2]/a[1]";
+        
+        
         
         
         

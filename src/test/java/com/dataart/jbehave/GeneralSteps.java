@@ -12,6 +12,7 @@ import com.dataart.steps.UserRegistrationSteps;
 import com.dataart.steps.UserTeamSteps;
 import com.dataart.utils.CheckGmail;
 import com.dataart.utils.Vars;
+import java.awt.AWTException;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -89,7 +90,7 @@ public class GeneralSteps {
 	@When("the user enters name: $userName and password: $password and click the 'login' button")
 	public void whenTheUserEnterLoginAndPassword(String userName,
 			String password) {
-		user.enter(userName, password);
+		user.enter(userName, password);                
 		user.click_login_button();
 
 	}
@@ -545,6 +546,7 @@ public class GeneralSteps {
 	public void userClicksontheDocsLinkandChoosesRegulationItem() {
 		userdoc.click_Docs_and_choose_Regulations();
 	}
+        
 
 	@Then("user is on the Regulations Docs page")
 	public void userisontheRegulationsDocsPage() {
@@ -562,7 +564,7 @@ public class GeneralSteps {
 	}
 
 	@Then("user clicks on the top document's title")
-	public void userClicksontheTopDocumentLink() {
+	public void userClicksontheTopDocumentLink() throws AWTException {
 		userdoc.first_doc_link_click();
 	}
 
@@ -642,6 +644,26 @@ public class GeneralSteps {
 	@When("user click on create a new team button")
 	public void userClickOnCreateAnewTeamButton() {
 		userteam.user_click_on_create_a_new_team_button();
+	}
+        
+        @Then("user clicks on the Upload Doc button")
+	public void userClickOnUploadDocButton() {
+		userdoc.upload_doc_button_click();
+	}
+        
+        @Then("user fills all the fields")
+	public void userFillsAllTheFields() {
+		userdoc.fills_all_the_fields();
+	}
+        
+        @Then("user chooses file and uploads it")
+	public void userChoosesFileandUploadsIt() throws AWTException {
+		userdoc.upload_file_and_click_Save_Document_button();
+	}
+        
+        @Then("user is able to see document in the list")
+	public void seeifDocumentIsintheList() {
+		userdoc.is_document_in_the_list();
 	}
 
 }
