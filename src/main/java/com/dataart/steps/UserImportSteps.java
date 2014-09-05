@@ -38,11 +38,5 @@ public class UserImportSteps extends ScenarioSteps{
 	public void user_should_see_error_message_on_popup(String message){
 		Assert.assertEquals(message,importPage.getErrorMessage());
 	}
-	@Step
-	public void sending_request_to(){
-		Client client =Client.create();
-		WebResource webResource = client.resource(Vars.BAYLOR_SITE);
-		User u = webResource.get(User.class);
-		System.out.println(u);
-	}
+	
 }
