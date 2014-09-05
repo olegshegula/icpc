@@ -9,11 +9,14 @@ import com.dataart.steps.UserPasswordResetSteps;
 import com.dataart.steps.UserProfileSteps;
 import com.dataart.steps.UserQASteps;
 import com.dataart.steps.UserRegistrationSteps;
+import com.dataart.steps.UserTeamSteps;
 import com.dataart.utils.CheckGmail;
 import com.dataart.utils.Vars;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
+
 import junit.framework.Assert;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
@@ -21,6 +24,7 @@ import net.thucydides.core.pages.Pages;
 import static net.thucydides.core.steps.StepData.withTestDataFrom;
 import net.thucydides.core.steps.StepFactory;
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
+
 import org.jbehave.core.annotations.BeforeScenario;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
@@ -57,6 +61,8 @@ public class GeneralSteps {
         
         @Steps
         UserDocsSteps userdoc;
+    @Steps
+    UserTeamSteps userteam;
 
 	@Given("the user is on the Login page")
 	public void givenTheUserIsOnTheLoginPage() {
@@ -577,5 +583,16 @@ public class GeneralSteps {
 	public void sendingRequestTo(){
 		userimport.sending_request_to();
 	}
+	@Given("the user is on the Teams page")
+	public void givenTheUserIsOnTheTeamsPage() {
+		
+		userteam.the_user_is_on_the_teams_page();
+
+	}
+	@When("user click on create a new team button")
+	public void userClickOnCreateAnewTeamButton(){
+		userteam.user_click_on_create_a_new_team_button();
+	}
+	
 }
 
