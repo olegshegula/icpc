@@ -1,0 +1,233 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Sample Thucydides project 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ icpc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Projects\ICPC\ICPCGit\icpc\icpc\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ icpc ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ icpc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 12 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ icpc ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.11:test (default-test) @ icpc ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ icpc ---
+[INFO] Building jar: D:\Projects\ICPC\ICPCGit\icpc\icpc\target\icpc-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-failsafe-plugin:2.11:integration-test (default) @ icpc ---
+[INFO] Failsafe report directory: D:\Projects\ICPC\ICPCGit\icpc\icpc\target\failsafe-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.dataart.jbehave.AcceptanceTestSuite
+369 [main] INFO net.thucydides.core.util.PropertiesFileLocalPreferences - LOADING LOCAL THUCYDIDES PROPERTIES FROM D:\Projects\ICPC\ICPCGit\icpc\icpc\thucydides.properties 
+369 [main] INFO net.thucydides.core.util.PropertiesFileLocalPreferences - story.timeout.in.secs=3000
+369 [main] INFO net.thucydides.core.util.PropertiesFileLocalPreferences - thucydides.take.screenshots=FOR_FAILURES
+370 [main] INFO net.thucydides.core.util.PropertiesFileLocalPreferences - LOADING LOCAL THUCYDIDES PROPERTIES FROM D:\Projects\ICPC\ICPCGit\icpc\icpc\thucydides.properties 
+Processing system properties {}
+Using controls EmbedderControls[batch=false,skip=false,generateViewAfterStories=true,ignoreFailureInStories=true,ignoreFailureInView=true,verboseFailures=false,verboseFiltering=false,storyTimeoutInSecs=3000,failOnStoryTimeout=false,threads=1]
+
+(BeforeStories)
+Before storyBeforeStories
+
+Running story com/dataart/stories/consult_dictionary/Test.story
+
+(com/dataart/stories/consult_dictionary/Test.story)
+Before storyTest.story
+965 [pool-1-thread-1] INFO net.thucydides.core.Thucydides - 
+
+-------------------------------------------------------------------------------------------------------
+.___________. __    __   __    __    ______ ____    ____  _______   __   _______   _______     _______.
+|           ||  |  |  | |  |  |  |  /      |\   \  /   / |       \ |  | |       \ |   ____|   /       |
+`---|  |----`|  |__|  | |  |  |  | |  ,----' \   \/   /  |  .--.  ||  | |  .--.  ||  |__     |   (----`
+    |  |     |   __   | |  |  |  | |  |       \_    _/   |  |  |  ||  | |  |  |  ||   __|     \   \    
+    |  |     |  |  |  | |  `--'  | |  `----.    |  |     |  '--'  ||  | |  '--'  ||  |____.----)   |   
+    |__|     |__|  |__|  \______/   \______|    |__|     |_______/ |__| |_______/ |_______|_______/    
+                                                                                                       
+-------------------------------------------------------------------------------------------------------
+
+967 [pool-1-thread-1] INFO net.thucydides.core.Thucydides - Test Suite Started: Test
+Scenario: As coordinator i want to be able to delete documents from the Regulations section
+1020 [pool-1-thread-1] INFO net.thucydides.core.Thucydides - 
+  _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
+ |_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
+   | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
+   | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
+   |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
+                                                                   
+
+TEST STARTED: As coordinator i want to be able to delete documents from the Regulations section
+--------------------------------------------------------------------
+log4j:WARN No appenders could be found for logger (org.apache.http.client.protocol.RequestAddCookies).
+log4j:WARN Please initialize the log4j system properly.
+7894 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: is_on_the_login_page
+8421 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STEP DONE: is_on_the_login_page
+Given the user is on the Login page
+8432 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: enter
+8807 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STEP DONE: enter
+8808 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: click_login_button
+9413 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STEP DONE: click_login_button
+When the user enters name: coord1@mailinator.com and password: 123456 and click the 'login' button
+9417 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: click_Docs_and_choose_Regulations
+10129 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STEP DONE: click_Docs_and_choose_Regulations
+When user clicks on the Docs link and chooses Regulations item
+10133 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: delete_first_doc_button_click
+10697 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STEP DONE: delete_first_doc_button_click
+Then user clicks on Delete button near the first doc in the list
+10702 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: cofirm_deleting_of_the_doc
+11234 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STEP DONE: cofirm_deleting_of_the_doc
+Then user confirms deleting
+11239 [pool-1-thread-1] INFO net.thucydides.core.steps.StepInterceptor - STARTING STEP: is_document_not_in_the_list
+Then user can see that document is deleted from the list (FAILED)
+(junit.framework.AssertionFailedError: null)
+
+junit.framework.AssertionFailedError: null
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.assertTrue(Assert.java:20)
+	at junit.framework.Assert.assertFalse(Assert.java:34)
+	at junit.framework.Assert.assertFalse(Assert.java:41)
+	at com.dataart.steps.UserDocsSteps.is_document_not_in_the_list(UserDocsSteps.java:189)
+	at com.dataart.steps.UserDocsSteps$$EnhancerByCGLIB$$78048a59.CGLIB$is_document_not_in_the_list$13(<generated>)
+	at com.dataart.steps.UserDocsSteps$$EnhancerByCGLIB$$78048a59$$FastClassByCGLIB$$33829ee0.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:285)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:261)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:125)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:51)
+	at com.dataart.steps.UserDocsSteps$$EnhancerByCGLIB$$78048a59.is_document_not_in_the_list(<generated>)
+	at com.dataart.jbehave.GeneralSteps.userCanSeeNoDocInList(GeneralSteps.java:686)
+	(reflection-invoke)
+	at org.jbehave.core.steps.StepCreator$ParametrisedStep.perform(StepCreator.java:595)
+	at org.jbehave.core.embedder.StoryRunner$FineSoFar.run(StoryRunner.java:535)
+...
+12930 [pool-1-thread-1] INFO net.thucydides.core.Thucydides - 
+           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
+  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
+ (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
+  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
+ (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
+          \_\                                                            
+
+TEST FAILED: As coordinator i want to be able to delete documents from the Regulations section
+--------------------------------------------------------------------------
+12933 [pool-1-thread-1] INFO net.thucydides.core.Thucydides - RELATED ISSUES: 
+12933 [pool-1-thread-1] INFO net.thucydides.core.Thucydides - 
+  _____ _    ___ _     _   _ ____  _____ 
+ |  ___/ \  |_ _| |   | | | |  _ \| ____|
+ | |_ / _ \  | || |   | | | | |_) |  _|  
+ |  _/ ___ \ | || |___| |_| |  _ <| |___ 
+ |_|/_/   \_\___|_____|\___/|_| \_\_____|
+                                         
+
+null
+
+Failed to run story com/dataart/stories/consult_dictionary/Test.story
+junit.framework.AssertionFailedError: null
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.assertTrue(Assert.java:20)
+	at junit.framework.Assert.assertFalse(Assert.java:34)
+	at junit.framework.Assert.assertFalse(Assert.java:41)
+	at com.dataart.steps.UserDocsSteps.is_document_not_in_the_list(UserDocsSteps.java:189)
+	at com.dataart.steps.UserDocsSteps$$EnhancerByCGLIB$$78048a59.CGLIB$is_document_not_in_the_list$13(<generated>)
+	at com.dataart.steps.UserDocsSteps$$EnhancerByCGLIB$$78048a59$$FastClassByCGLIB$$33829ee0.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:285)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:261)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:125)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:51)
+	at com.dataart.steps.UserDocsSteps$$EnhancerByCGLIB$$78048a59.is_document_not_in_the_list(<generated>)
+	at com.dataart.jbehave.GeneralSteps.userCanSeeNoDocInList(GeneralSteps.java:686)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.jbehave.core.steps.StepCreator$ParametrisedStep.perform(StepCreator.java:595)
+	at org.jbehave.core.embedder.StoryRunner$FineSoFar.run(StoryRunner.java:535)
+	at org.jbehave.core.embedder.StoryRunner.runStepsWhileKeepingState(StoryRunner.java:515)
+	at org.jbehave.core.embedder.StoryRunner.runScenarioSteps(StoryRunner.java:479)
+	at org.jbehave.core.embedder.StoryRunner.runStepsWithLifecycle(StoryRunner.java:445)
+	at org.jbehave.core.embedder.StoryRunner.runCancellable(StoryRunner.java:305)
+	at org.jbehave.core.embedder.StoryRunner.run(StoryRunner.java:220)
+	at org.jbehave.core.embedder.StoryRunner.run(StoryRunner.java:181)
+	at org.jbehave.core.embedder.StoryManager$EnqueuedStory.call(StoryManager.java:235)
+	at org.jbehave.core.embedder.StoryManager$EnqueuedStory.call(StoryManager.java:207)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+(AfterStories)
+Before storyAfterStories
+
+13376 [main] INFO net.thucydides.core.reports.ReportService - Reporting formats: [JSON, XML, HTML]
+13379 [main] INFO net.thucydides.core.reports.ReportService - Found reporter: net.thucydides.core.reports.xml.XMLTestOutcomeReporter@78fa769e(format = Optional.of(XML))
+13379 [main] INFO net.thucydides.core.reports.ReportService - Registering reporter: net.thucydides.core.reports.xml.XMLTestOutcomeReporter@78fa769e
+13626 [main] INFO net.thucydides.core.reports.ReportService - Found reporter: net.thucydides.core.reports.json.JSONTestOutcomeReporter@50468873(format = Optional.of(JSON))
+13626 [main] INFO net.thucydides.core.reports.ReportService - Registering reporter: net.thucydides.core.reports.json.JSONTestOutcomeReporter@50468873
+13675 [main] INFO net.thucydides.core.reports.ReportService - Found reporter: net.thucydides.core.reports.html.HtmlAcceptanceTestReporter@61f05988(format = Optional.of(HTML))
+13675 [main] INFO net.thucydides.core.reports.ReportService - Registering reporter: net.thucydides.core.reports.html.HtmlAcceptanceTestReporter@61f05988
+13705 [main] INFO net.thucydides.core.reports.ReportService - Generating reports using: net.thucydides.core.reports.xml.XMLTestOutcomeReporter@78fa769e
+13709 [main] INFO net.thucydides.core.reports.ReportService - Processing test outcome Test:As coordinator i want to be able to delete documents from the Regulations section
+13709 [main] INFO net.thucydides.core.reports.ReportService - net.thucydides.core.reports.xml.XMLTestOutcomeReporter@78fa769e: Generating report for test outcome: Test:As coordinator i want to be able to delete documents from the Regulations section
+13713 [main] INFO net.thucydides.core.reports.xml.XMLTestOutcomeReporter - Generating XML report for As coordinator i want to be able to delete documents from the Regulations section to file D:\Projects\ICPC\ICPCGit\icpc\icpc\target\site\thucydides\9c0d1816b91859c3967c6ee020704ee121ca38a0a4c9f61012d9fbd4b5f0d742.xml
+13731 [main] INFO net.thucydides.core.reports.xml.XMLTestOutcomeReporter - XML report generated (D:\Projects\ICPC\ICPCGit\icpc\icpc\target\site\thucydides\9c0d1816b91859c3967c6ee020704ee121ca38a0a4c9f61012d9fbd4b5f0d742.xml bytes) 2899
+13738 [main] INFO net.thucydides.core.reports.ReportService - Report generated for Test:As coordinator i want to be able to delete documents from the Regulations section
+13738 [main] INFO net.thucydides.core.reports.ReportService - Reports generated in: 33
+13738 [main] INFO net.thucydides.core.reports.ReportService - Generating reports using: net.thucydides.core.reports.json.JSONTestOutcomeReporter@50468873
+13739 [pool-3-thread-1] INFO net.thucydides.core.reports.ReportService - Processing test outcome Test:As coordinator i want to be able to delete documents from the Regulations section
+13739 [main] INFO net.thucydides.core.reports.ReportService - Report generated for Test:As coordinator i want to be able to delete documents from the Regulations section
+13739 [main] INFO net.thucydides.core.reports.ReportService - Reports generated in: 1
+13739 [main] INFO net.thucydides.core.reports.ReportService - Generating reports using: net.thucydides.core.reports.html.HtmlAcceptanceTestReporter@61f05988
+13739 [pool-3-thread-1] INFO net.thucydides.core.reports.ReportService - net.thucydides.core.reports.json.JSONTestOutcomeReporter@50468873: Generating report for test outcome: Test:As coordinator i want to be able to delete documents from the Regulations section
+13740 [pool-4-thread-1] INFO net.thucydides.core.reports.ReportService - Processing test outcome Test:As coordinator i want to be able to delete documents from the Regulations section
+13740 [pool-4-thread-1] INFO net.thucydides.core.reports.ReportService - net.thucydides.core.reports.html.HtmlAcceptanceTestReporter@61f05988: Generating report for test outcome: Test:As coordinator i want to be able to delete documents from the Regulations section
+13741 [pool-4-thread-1] INFO net.thucydides.core.requirements.RequirementsTagProvider - Reading requirements from net.thucydides.core.requirements.FileSystemRequirementsTagProvider@3e5e0c6
+13741 [pool-4-thread-1] INFO net.thucydides.core.requirements.RequirementsTagProvider - Reading requirements from net.thucydides.core.requirements.PackageAnnotationBasedTagProvider@37a6eac9
+13742 [pool-4-thread-1] INFO net.thucydides.core.requirements.RequirementsTagProvider - Requirements found:[]
+14170 [pool-4-thread-1] INFO net.thucydides.core.reports.html.HtmlAcceptanceTestReporter - GENERATING HTML REPORT FOR Test:As coordinator i want to be able to delete documents from the Regulations section => 9c0d1816b91859c3967c6ee020704ee121ca38a0a4c9f61012d9fbd4b5f0d742.html
+14175 [pool-4-thread-1] INFO net.thucydides.core.reports.ReportService - Report generated for Test:As coordinator i want to be able to delete documents from the Regulations section
+14213 [main] INFO net.thucydides.core.reports.ReportService - Reports generated in: 474
+Generating reports view to 'D:\Projects\ICPC\ICPCGit\icpc\icpc\target\jbehave' using formats '[stats, console, html, xml, thucydidesreporter, junitscenarioreporter]' and view properties '{decorateNonHtml=true}'
+Reports view generated with 1 stories (of which 0 pending) containing 1 scenarios (of which 0 pending)
+Failures in reports view: 1 scenarios failed
+Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 14.468 sec <<< FAILURE!
+
+Results :
+
+Failed tests:   Then user can see that document is deleted from the list(com.dataart.jbehave.GeneralSteps)
+
+Tests run: 8, Failures: 1, Errors: 0, Skipped: 0
+
+[WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Sample Thucydides project 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-thucydides-plugin:0.9.262:aggregate (default-cli) @ icpc ---
+[INFO] LOADING LOCAL THUCYDIDES PROPERTIES FROM D:\Projects\ICPC\ICPCGit\icpc\icpc\thucydides.properties 
+[INFO] story.timeout.in.secs=3000
+[INFO] thucydides.take.screenshots=FOR_FAILURES
+[INFO] LOADING LOCAL THUCYDIDES PROPERTIES FROM D:\Projects\ICPC\ICPCGit\icpc\icpc\thucydides.properties 
+[INFO] Reading requirements from net.thucydides.core.requirements.FileSystemRequirementsTagProvider@1b52699c
+[INFO] Reading requirements from net.thucydides.core.requirements.PackageAnnotationBasedTagProvider@dbed7fd
+[INFO] Requirements found:[]
+[INFO] Generating release reports for: []
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 19.075s
+[INFO] Finished at: Mon Sep 08 15:00:22 EEST 2014
+[INFO] Final Memory: 21M/130M
+[INFO] ------------------------------------------------------------------------

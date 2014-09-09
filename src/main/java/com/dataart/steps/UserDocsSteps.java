@@ -16,6 +16,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import junit.framework.Assert;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -41,7 +43,9 @@ public class UserDocsSteps extends ScenarioSteps{
     public void click_Docs_and_choose_Regulations() {
 	Actions builder = new Actions(getDriver());		
 		builder.moveToElement(docsPage.docsLink).build().perform();
+                waitABit(1000);
 		docsPage.element(docsPage.docsLink).waitUntilVisible();
+                waitABit(1000);
 		builder.moveToElement(docsPage.regulationsDocsMenuItem).click().perform();
     }
     
@@ -49,7 +53,9 @@ public class UserDocsSteps extends ScenarioSteps{
     public void click_Docs_and_choose_Guidance() {
 	Actions builder = new Actions(getDriver());		
 		builder.moveToElement(docsPage.docsLink).build().perform();
+                waitABit(1000);
 		docsPage.element(docsPage.docsLink).waitUntilVisible();
+                waitABit(1000);
 		builder.moveToElement(docsPage.guidanceDocsMenuItem).click().perform();
     }
     
@@ -112,8 +118,14 @@ public class UserDocsSteps extends ScenarioSteps{
     }
     
     @Step
-    public void upload_doc_button_click(){
-        docsPage.uploadDocButton.click();
+    public void upload_regulation_doc_button_click(){
+        docsPage.uploadRegulationDocButton.click();
+        waitABit(3000);
+    }
+    
+    @Step
+    public void upload_guidance_doc_button_click(){
+        docsPage.uploadGuidanceDocButton.click();
         waitABit(3000);
     }
     
@@ -153,6 +165,75 @@ public class UserDocsSteps extends ScenarioSteps{
     @Step
     public void is_document_in_the_list(){
         Assert.assertEquals("testtitle", getDriver().findElement(By.xpath(DocsPage.FIRST_DOCUMENT_LINK_XPATH)).getText());
+    }
+    
+    @Step
+    public void delete_first_doc_button_click(){
+        docsPage.deleteFirstDocButton.click();
+    }
+    
+    @Step
+    public void cofirm_deleting_of_the_doc(){
+        try {
+            Robot robot = new Robot();
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+            waitABit(500);
+            robot.keyPress(KeyEvent.VK_F5);
+            robot.keyRelease(KeyEvent.VK_F5);
+        } catch (AWTException ex) {
+            Logger.getLogger(UserDocsSteps.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @Step
+    public void is_document_not_in_the_list(){
+        String s = getDriver().findElement(By.xpath(DocsPage.FIRST_DOCUMENT_LINK_XPATH)).getText();
+        Assert.assertNotSame(s, "testtitle");
+    }
+    
+    @Step
+    public void edit_first_doc_button_click(){
+        docsPage.editFirstDocButton.click();
+    }
+    
+    @Step
+    public void fills_all_the_fields_with_new_information(){
+        docsPage.titleInputField.clear();
+        docsPage.descriptionInputField.clear();
+        docsPage.titleInputField.sendKeys("testtitle");
+        docsPage.descriptionInputField.sendKeys("testdescription");
+        waitABit(3000);
+        
+    }
+    
+    @Step
+    public void click_Docs_and_choose_Guidance_in_Edit_Menu() {
+	Actions builder = new Actions(getDriver());		
+		builder.moveToElement(docsPage.editMenuDocTypeDropdown).build().perform();
+		docsPage.element(docsPage.editMenuDocTypeDropdown).waitUntilVisible();
+                waitABit(500);
+		builder.moveToElement(docsPage.editMenuDocTypeGuidanceItem).click().perform();
+    }
+    
+    @Step
+    public void click_Docs_and_choose_Regulations_in_Edit_Menu() {
+	Actions builder = new Actions(getDriver());		
+		builder.moveToElement(docsPage.editMenuDocTypeDropdown).build().perform();
+                waitABit(1000);
+		docsPage.element(docsPage.editMenuDocTypeDropdown).waitUntilVisible();
+                waitABit(500);
+		builder.moveToElement(docsPage.editMenuDocTypeRegulationsItem).click().perform();
+    }
+    
+    @Step
+    public void click_Save_Document_Button(){
+        docsPage.saveDocumentButton.click();
+    }
+    
+    @Step
+    public void find_Editted_Doc_in_the_LIST(){
+        getDriver().findElement(By.xpath(DocsPage.DOC_WITH_PRESET_DESCRIPTION_XPATH)).isDisplayed();
     }
        
     

@@ -31,7 +31,10 @@ public class DocsPage extends PageObject {
 	public WebElement docsLink;
         
         @FindBy(xpath="//*[@href='/staff/docs/create/type/regulations']")
-	public WebElement uploadDocButton;
+	public WebElement uploadRegulationDocButton;
+        
+        @FindBy(xpath="//*[@href='/staff/docs/create/type/guidance']")
+	public WebElement uploadGuidanceDocButton;
         
         @FindBy(xpath="//input[@name='title']")
 	public WebElement titleInputField;
@@ -48,6 +51,23 @@ public class DocsPage extends PageObject {
         @FindBy(xpath="//button[@type='submit']")
 	public WebElement saveDocumentButton;
         
+        @FindBy(xpath="html/body/div[2]/div/div[5]/div[2]/button")
+	public WebElement deleteFirstDocButton;
+        
+        @FindBy(xpath="html/body/div[2]/div/div[5]/div[2]/a[2]")
+	public WebElement editFirstDocButton;
+        
+        @FindBy(xpath="//select[@class='form-control'][@name='type']")
+	public WebElement editMenuDocTypeDropdown;
+        
+        @FindBy(xpath="//option[@value='guidance']")
+	public WebElement editMenuDocTypeGuidanceItem;
+        
+        @FindBy(xpath="//option[@value='regulations']")
+	public WebElement editMenuDocTypeRegulationsItem;
+        
+        @FindBy(xpath="//p[contains(text(),'testdesc')]")
+	public WebElement docWithPresetSescription;
         
         public final static String REGULATIONS_DOCS_PAGE_TITLE = "Docs - ICPC";
 	
@@ -60,6 +80,8 @@ public class DocsPage extends PageObject {
         public final static String SAVE_DOCUMENT_BUTTON_XPATH = "//button[@type='submit']";
         
         public final static String FIRST_DOCUMENT_LINK_XPATH = "html/body/div[2]/div/div[5]/div[2]/a[1]";
+        
+        public final static String DOC_WITH_PRESET_DESCRIPTION_XPATH = "//p[contains(text(),'testdesc')]";
         
         
         
